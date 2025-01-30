@@ -57,6 +57,18 @@
 	animation-delay: 600ms;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+	color: #ccc;
+	width: 24px !important;
+	height: 24px !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+	font-size: 24px !important;
+}
+
 /* Animations */
 @keyframes float {
 	0% {

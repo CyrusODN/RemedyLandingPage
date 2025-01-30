@@ -4,6 +4,18 @@ export const locations = [
     city: "Gdynia",
     address: "ul. Generała Józefa Bema 15/1",
     image: "/images/Image.jpg",
+    images: [
+      {
+
+
+        image: "/images/Gdynia-1.jpg",
+      }, {
+
+        image: "/images/Gdynia-2.jpg",
+      },
+    ],
+
+
     coordinates: {
       lat: 54.512568929701885,
       lng: 18.540836277637418,
@@ -30,7 +42,25 @@ export const locations = [
     id: "gdansk",
     city: "Gdańsk",
     address: "ul. Stanisława Staszica 6/2",
+
+    images: [
+      {
+
+
+        image: "/images/Gdansk-1.jpg",
+      }, {
+
+        image: "/images/Gdansk-2.jpg",
+      },
+    ],
     image: "/images/Image.jpg",
+
+
+
+
+    // image1: "/images/Gdansk-2.jpg",
+    // image2: "/images/Gdansk-1.jpg",
+
 
 
     coordinates: {
