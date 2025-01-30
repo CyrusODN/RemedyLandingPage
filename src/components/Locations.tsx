@@ -102,7 +102,7 @@ export default function Locations() {
                   {location.publicTransport && (
                     <div className="flex items-center gap-2 text-gray-600">
                       <Bus className="h-5 w-5 text-[#46B7C6]" />
-                      <span>{"Public transport"}</span>
+                      <span>{t( "Public transport" )}</span>
                     </div>
                   )}
                   {location.accessibility && (

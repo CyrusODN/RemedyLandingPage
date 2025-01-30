@@ -8,10 +8,10 @@ export const locations = [
       {
 
 
-        image: "/images/Gdynia-1.jpg",
+        image: "/images/Gdynia-2.jpg",
       }, {
 
-        image: "/images/Gdynia-2.jpg",
+        image: "/images/Gdynia-1.jpg",
       },
     ],
 
