@@ -12,7 +12,7 @@ const values = [
     icon: Shield,
     title: "Safety",
     description:
-      "Providing the highest standards of patient care and ensuring safety.",
+      "Providing the highest standards of patient care and safety.",
   },
   {
     icon: Users,

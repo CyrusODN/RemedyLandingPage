@@ -15,12 +15,12 @@ const services = [
   },
   {
     icon: TestTube2,
-    title: "Innovative Treatment in Clinical Research",
+    title: "Clinical Trials",
     features: [
       "Research partnerships",
-      "Access to breakthrough therapies",
+      "Participation in research on potential new therapies",
       "Participation in international studies",
-      "Personalized therapeutic approach",
+      "Personalized approach",
     ],
   },
   {

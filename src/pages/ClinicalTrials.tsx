@@ -25,9 +25,9 @@ const benefits = [
   },
   {
     icon: TrendingUp,
-    title: "Innovative Therapies",
+    title: "Innovative Approaches",
     description:
-      "Access to the latest treatment methods before their official introduction",
+      "Access to the latest clinical trials",
   },
   {
     icon: HeartPulse,
@@ -61,7 +61,7 @@ const process = [
     step: "03",
     icon: Users,
     title: "Participation in the Study",
-    description: "Regular visits with medication intake, monitoring progress",
+    description: "Regular visits with study drug intake, monitoring progress",
   },
   {
     step: "04",
@@ -99,7 +99,7 @@ export default function ClinicalTrials() {
                 </h1>
                 <p className="text-xl text-gray-600 max-w-3xl mb-8">
                   {t(
-                    "Clinical trials are a key element in the development of new treatment methods in psychiatry. Thanks to them, we can offer patients innovative therapies and contribute to progress in medicine."
+                    "Clinical trials are essential for evaluating new therapeutic approaches in psychiatry. They help advance medical knowledge and may contribute to the development of future treatment options."
                   )}
                 </p>
 

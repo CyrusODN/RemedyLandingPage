@@ -36,16 +36,16 @@ const treatments = [
   },
   {
     icon: Brain,
-    title: "Innovative Therapies",
+    title: "Innovative Approaches",
     description:
-      "Available therapies in the form of clinical trials and drug programs",
+      "Available clinical trials and drug programs",
     content: {
       description:
-        "Participation in innovative therapeutic programs and clinical trials using the latest treatment methods.",
+        "Participation in clinical trials and research programs evaluating new therapeutic approaches.",
       details: [
-        "Access to the latest therapies",
+        "Participation in studies on potential new therapies",
         "Participation in international studies",
-        "Innovative treatment methods",
+        "Evaluation of potential treatment approaches",
         "Collaboration with leading centers",
       ],
       process: [
@@ -55,7 +55,7 @@ const treatments = [
         "Regular evaluation of results",
       ],
       benefits: [
-        "Access to breakthrough therapies",
+        "Participation in research on potential new therapies",
         "Care from a specialized team",
         "Regular monitoring of progress",
         "Contributing to the development of psychiatry",
