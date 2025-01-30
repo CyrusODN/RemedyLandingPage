@@ -26,7 +26,7 @@ export default function Research() {
             <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
               <h3 className="text-2xl font-semibold mb-6 flex items-center">
                 <TestTube2 className="h-6 w-6 text-[#46B7C6] mr-3" />
-                {t("Breakthrough Therapies")}
+                {t("New Opportunities")}
               </h3>
               <div className="space-y-4">
                 <div className="p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
@@ -90,7 +90,7 @@ export default function Research() {
             </h3>
             <p className="mb-6">
               {t(
-                "Take part in innovative therapeutic programs and contribute to the development of psychiatry."
+                "Contribute to research on new potential treatment possibilities in psychiatry."
               )}
             </p>
             <Link

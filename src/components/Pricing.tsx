@@ -28,12 +28,12 @@ const plans = [
   },
   {
     name: "First-time Psychiatric Consultation for Children and Adolescents",
-    price: "400 PLN",
+    price: "450 PLN",
     features: [
       "Interview with parents/guardians",
       "Mental state evaluation",
       "Treatment plan",
-      "Duration: 50 minutes",
+      "Duration: 60 minutes",
       "Pharmacological recommendations",
     ],
   },
@@ -72,7 +72,7 @@ const plans = [
   },
   {
     name: "Personality Diagnostics",
-    price: "400 PLN",
+    price: "750 PLN",
     features: [
       "Diagnostic interview",
       "Psychological tests",

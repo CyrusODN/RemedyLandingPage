@@ -45,11 +45,11 @@ export default function ServicePage() {
       title: "Psychiatric Consultation for Children and Adolescents",
       description: "Specialist consultation for patients up to 18 years old.",
       duration: {
-        first: "50 minutes",
+        first: "60 minutes",
         follow: "30 minutes",
       },
       price: {
-        first: "400 PLN",
+        first: "450 PLN",
         follow: "350 PLN",
       },
       includes: [
@@ -61,7 +61,7 @@ export default function ServicePage() {
         "Guidelines for parents/guardians",
       ],
       process: [
-        "Interview with parents",
+        "Interview with parents/guardians",
         "Conversation with the child",
         "Development assessment",
         "Establishing therapy plan",
@@ -135,7 +135,7 @@ export default function ServicePage() {
       title: "Personality Diagnostics",
       description: "Comprehensive psychological and psychiatric diagnostics.",
       duration: "2-3 hours",
-      price: "400 PLN",
+      price: "750 PLN",
       includes: [
         "Diagnostic interview",
         "Psychological tests",
