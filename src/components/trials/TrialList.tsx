@@ -292,7 +292,7 @@ export default function TrialList( { onBack }: TrialListProps ) {
           value={selectedDate}
         /> */}
 
-        <div className="relative">
+        {/* <div className="relative">
           <input
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full pr-10"
             type="date"
@@ -309,7 +309,7 @@ export default function TrialList( { onBack }: TrialListProps ) {
               <X className="h-5 w-5" />
             </button>
           )}
-        </div>
+        </div> */}
 
       </div>
 
