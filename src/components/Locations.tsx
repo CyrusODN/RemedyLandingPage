@@ -151,7 +151,7 @@ export default function Locations() {
                       hover:shadow-lg transition-all duration-300 font-medium
                       flex items-center justify-center gap-2"
                 >
-                  {"Make an appointment at this location"}
+                  {t( "Make an appointment at this location" )}
                 </Link>
               </div>
             </div>
