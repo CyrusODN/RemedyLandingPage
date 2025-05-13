@@ -135,7 +135,7 @@ export default function ServicePage() {
       title: "Personality Diagnostics",
       description: "Comprehensive psychological and psychiatric diagnostics.",
       duration: "2-3 hours",
-      price: "750 PLN",
+      price: "1500 PLN",
       includes: [
         "Diagnostic interview",
         "Psychological tests",

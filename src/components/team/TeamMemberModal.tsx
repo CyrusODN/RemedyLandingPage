@@ -85,7 +85,7 @@ export default function TeamMemberModal({
                 </div>
 
                 {/* Content */}
-                <div className="overflow-y-auto max-h-[70vh] pr-2 custom-scrollbar">
+                <div className=" pr-2 ">
                   <h2
                     id="modal-title"
                     className="text-2xl font-bold text-gray-900 mb-2"

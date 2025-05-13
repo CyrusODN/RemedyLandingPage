@@ -70,7 +70,7 @@ export default function AboutUs() {
           ))}
         </div>
 
-        {/* <ScrollAnimationWrapper animation="fade-up">
+        <ScrollAnimationWrapper animation="fade-up">
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               {t("Our Team")}
@@ -80,7 +80,7 @@ export default function AboutUs() {
               setSelectedMember={setSelectedMember}
             />
           </div>
-        </ScrollAnimationWrapper> */}
+        </ScrollAnimationWrapper>
 
         <ScrollAnimationWrapper animation="fade-up">
           <div className="bg-gradient-to-r from-[#4A90B9] to-[#68BFB3] rounded-xl p-8 text-white">

@@ -72,7 +72,7 @@ const plans = [
   },
   {
     name: "Personality Diagnostics",
-    price: "750 PLN",
+    price: "1500 PLN",
     features: [
       "Diagnostic interview",
       "Psychological tests",

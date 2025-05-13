@@ -1,232 +1,152 @@
 export const teamMembers = [
   {
     id: "1",
-    name: "dr n. med. Anna Kowalska",
-    role: "Psychiatrist, Clinic Manager",
+    name: "Lek Cyrus Tahery",
+    role: "Lek. W trakcie specjalizacji z Psychiatrii Dorosłych, współzałożyciel Remedy.",
     image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+      "/images/pic1.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Dr. Anna Kowalska is a psychiatric specialist with over 15 years of clinical experience. She graduated from the Medical University of Warsaw, where she currently also teaches students. She specializes in treating affective and anxiety disorders. Dr. Kowalska is the author of numerous scientific publications and an active participant in international psychiatric conferences.",
+       "/images/pic1.png",
+    bio: "Absolwent I Wydziału Lekarskiego Uniwersytetu Medycznego w Warszawie, od dawna pasjonuje się psychiatrią, neuronaukami i psychofarmakologią. W trakcie szkolenia specjalizacyjnego z Psychiatrii Dorosłych w Wojewódzkim Szpitalu Psychiatrycznym im. prof. Tadeusza Bilikiewicza w Gdańsku. W swojej praktyce stosuję podejście skupiające się na indywidualnych potrzebach każdego pacjenta, oraz kieruję się holistyczną wizją zdrowia psychicznego. Projektuje narzędzia AI, które wykorzystuje je w celu usprawnienia prcesów administracyjnych i diagnostyczno- edukacyjnych, co pozwala mu poświęcić więcej uwagi i czasu na każdego pacjenta i efektywniej go leczyć. Badacz kliniczny w Centrum Badań Klinicznych PI - House w Gdańsku – specjalizuje się w badaniach nad psychodelikami klasycznymi takimi jak DMT, 5 - MeO - DMT, Psylocybina i LSD w leczeniu zaburzeń psychicznych.",
     specializations: [
-      "Affective Disorders",
-      "Anxiety Disorders",
-      "Community Psychiatry",
-      "Psychopharmacology",
+      "Psychiatria dorosłych",
+      "Psychofarmakologia",
+      "Terapie psychodeliczne",
+      "Badania kliniczne",
+      "Zaburzenia nastroju",
     ],
-    education: [
-      "Medical University of Warsaw - Specialization in Psychiatry",
-      "Ph.D. in Community Psychiatry",
-      "Postgraduate Studies in Cognitive-Behavioral Psychotherapy",
-    ],
-    certifications: [
-      "Certificate from the Polish Psychiatric Association",
-      "European Certificate in Psychiatry",
-      "CBT Therapist Certificate",
-    ],
+   
   },
   {
     id: "2",
-    name: "lek. Cyrus Tahery",
-    role: "Physician in Psychiatry Residency",
+    name: "Lek. Sylwia Lipińska-Celmer",
+    role: "Specjalistka Psychiatrii Dorosłych, Psychoterapeutka",
     image:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+     "/images/pic2.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Dr. Tahery is a young, dynamic physician combining clinical practice with an interest in modern technologies in psychiatry. He is a co-creator of the Remedy AI system and actively works in the field of digital psychiatry. He is particularly interested in the use of artificial intelligence in psychiatric diagnostics.",
+      "/images/pic2.png",
+    bio: "Jestem absolwentką Wydziału Lekarskiego Gdańskiego Uniwersytetu Medycznego. W 2016r uzyskałam dyplom lekarza. Następnie w 2017r rozpoczęłam szkolenie specjalizacyjne z psychiatrii w Szpitalu dla Nerwowo i Psychicznie Chorych w Starogardzie Gdańskim. W marcu 2022r zdałam Państwowy Egzamin Specjalizacyjny z psychiatrii. Dyplom specjalisty uzyskałam 15.11.2022. W swojej pracy i w kontakcie z pacjentem korzystam ze zdobytego doświadczenia zarówno jako lekarza psychiatry i psychoterapeuty. Staram się wspólnie z pacjentem wyklarować i zrozumieć jego problem oraz polecić najskuteczniejszą pomoc. Preferuję holistyczne podejście do zaburzeń psychicznych. Podczas wizyty chętnie korzystam z elementów psychoterapii i psychoedukacji jednocześnie zapewniając adekwatną farmakoterapię. Doświadczenie zawodowe zdobywałam w wielu oddziałach psychiatrycznych (ogólnopsychiatrycznym, leczenia uzależnień, sądowym), a także w poradniach zdrowia psychicznego (Tczew, Starogard Gdański, Chojnice), domu pomocy społecznej oraz w trakcie wielu kursów i konferencji. W czerwcu 2020 roku ukończyłam 4 letnie szkolenie do certyfikatu psychoterapeuty prowadzone przez Oddział Leczenia Zaburzeń Osobowości i Nerwic Szpitala J. Babińskiego w Krakowie akredytowane przez sekcję naukową Polskiego Towarzystwa Psychiatrycznego oraz Polskie Towarzystwo Psychologiczne. Psychoterapię prowadzę w nurcie psychodynamicznym/psychoanalitycznym, spotkania odbywają się 2 x w tygodniu.",
     specializations: [
-      "Digital Psychiatry",
-      "Artificial Intelligence in Medicine",
-      "Mood Disorders",
-      "Medical Innovations",
+      "Psychiatria dorosłych",
+      "Psychoterapia psychodynamiczna",
+      "Zaburzenia osobowości",
+      "Zaburzenia lękowe",
+      "Zaburzenia afektywne",
+
     ],
-    education: [
-      "Medical University of Gdańsk",
-      "Postgraduate Studies in AI in Medicine",
-    ],
-    certifications: [
-      "Machine Learning in Healthcare Certificate",
-      "Member of the European Psychiatric Association",
-    ],
+  
   },
   {
     id: "3",
-    name: "mgr Karolina Wiśniewska",
-    role: "Clinical Psychologist",
+    name: "Lek. Magdalena Welz",
+    role: "Lek. W trakcie specjalizacji z Psychiatrii Dorosłych",
     image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+        "/images/pic3.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Mgr. Karolina Wiśniewska is an experienced clinical psychologist specializing in psychological diagnostics and psychotherapy. She has particular experience working with adolescents and young adults. She is a certified cognitive-behavioral therapist and also leads therapeutic groups.",
+        "/images/pic3.png",
+    bio: "Jestem absolwentką Wydziału Lekarskiego Gdańskiego Uniwersytetu Medycznego, a obecnie odbywam specjalizację w dziedzinie psychiatrii dorosłych w Wojewódzkim Szpitalu Psychiatrycznym im. Tadeusza Bilikiewicza w Gdańsku.W pracy z pacjentami koncentruję się na otwartej komunikacji, budowaniu zaufania i indywidualnym podejściu do terapii, aby zapewnić poczucie bezpieczeństwa oraz komfort i dobrostan pacjentów.Stale poszerzam swoją wiedzę, uczestnicząc w konferencjach naukowych, a w tym roku dołączyłam do zespołu badawczego w Centrum Badań Klinicznych PI- House w Gdańsku, gdzie zdobywam doświadczenie w badaniach nad nowymi terapiami i łączę praktykę kliniczną z najnowszymi osiągnięciami medycyny.",
     specializations: [
-      "Psychological Diagnostics",
-      "Psychotherapy",
-      "Adolescent Therapy",
-      "Group Therapy",
+         "Psychiatria dorosłych",
+      "Zaburzenia lękowe",
+      "Psychiatria środowiskowa",
+      "Badania kliniczne",
+      "Zaburzenia afektywne",
     ],
-    education: [
-      "SWPS University of Social Sciences and Humanities - Clinical Psychology",
-      "School of Cognitive-Behavioral Psychotherapy",
-    ],
-    certifications: [
-      "Certified Cognitive-Behavioral Therapist",
-      "Certificate in Psychological Diagnostics",
-    ],
+   
   },
   {
     id: "4",
-    name: "dr hab. Piotr Adamczyk",
-    role: "Psychiatrist, Researcher",
+    name: "Lek. Aleksandra Hubisz",
+    role: "Lek. W trakcie specjalizacji z Psychiatrii Dzieci i Młodzieży",
     image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+    "/images/pic4.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Dr. hab. Piotr Adamczyk is a renowned psychiatrist and clinical researcher with extensive experience in conducting studies on new treatment methods in psychiatry. He heads the clinical research department at our facility and is the author of over 50 scientific publications in international journals.",
+      "/images/pic4.png",
+    bio: "Jestem absolwentką Wydziału Lekarskiego Gdańskiego Uniwersytetu Medycznego, obecnie odbywam specjalizację z psychiatrii dzieci i młodzieży w Szpitalu dla Nerwowo i Psychicznie Chorych im. Stanisława Kryzana w Starogardzie Gdańskim.W pracy klinicznej szczególną uwagę przykładam do precyzyjnej diagnostyki oraz współpracy interdyscyplinarnej z zespołem psychologów i terapeutów dziecięcych.Dzięki temu mogę zaoferować pacjentom kompleksową ocenę, efektywną terapię oraz skoordynowaną opiekę uwzględniającą także podejście systemowe i rodzinne.Priorytetem w kontakcie z młodymi pacjentami i ich rodzinami jest dla mnie budowanie atmosfery wzajemnego zaufania, bezpieczeństwa oraz komfortu emocjonalnego, które sprzyjają efektywności procesu terapeutycznego.Stale pogłębiam swoje kompetencje zawodowe, aktywnie uczestnicząc w konferencjach naukowych oraz szkoleniach specjalistycznych.",
     specializations: [
-      "Clinical Research",
-      "Biological Psychiatry",
-      "Innovative Therapies",
-      "Affective Disorders",
+      "Psychiatria dzieci i młodzieży",
+      "Terapia systemowa",
+      "Zaburzenia neurorozwojowe",
+      "Zaburzenia zachowania",
+      "Praca z rodziną",
     ],
-    education: [
-      "Jagiellonian University - Medicine",
-      "Habilitation in Psychiatry",
-      "Postdoctoral Fellowship at Harvard Medical School",
-    ],
-    certifications: [
-      "Principal Investigator Certificate",
-      "Good Clinical Practice Certificate",
-      "European Certificate in Psychiatry",
-    ],
+  
   },
   {
     id: "5",
-    name: "dr n. med. Maria Nowak",
-    role: "Child and Adolescent Psychiatrist",
+    name: "Mgr Katarzyna Wojtaś",
+    role: "Psycholog dziecięcy",
     image:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+       "/images/pic5.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Dr. Maria Nowak is a specialist in child and adolescent psychiatry with 12 years of experience. She is particularly interested in neurodevelopmental disorders and early interventions in mental health disorders in children. She also conducts research on the impact of social media on the mental health of adolescents.",
+      "/images/pic5.png",
+    bio: "Jestem absolwentką psychologii oraz filozofii na Uniwersytecie Gdańskim. Ukończyłam studia podyplomowe z zakresu Stosowanej Analizy Zachowania na Uniwersytecie SWPS w Sopocie. Posiadam doświadczenie w terapii behawioralnej, wspieraniu rozwoju umiejętności poznawczych i społecznych u dzieci oraz w pracy z trudnościami w zachowaniu. Specjalizuję się również w pracy z osobami w spektrum autyzmu oraz w pomaganiu w trudnościach szkolnych. Obecnie kształcę się w zakresie psychoterapii, co pozwala mi skutecznie wspierać młodych dorosłych. W swojej pracy kładę nacisk na indywidualne podejście, budowanie autentycznej relacji terapeutycznej oraz tworzenie bezpiecznej i wspierającej atmosfery. Moim celem jest pomoc w pełnym wykorzystaniu potencjału zarówno w zakresie rozwoju osobistego, jak i w pokonywaniu trudności, takich jak zaburzenia lękowe, niska samoocena czy wyzwania edukacyjne. Spotkania mają charakter profesjonalny, a jednocześnie pozostają otwarte i przyjazne tak, aby każdy mógł poczuć się komfortowo i swobodnie. Jeśli szukasz wsparcia łączącego profesjonalizm z empatycznym podejściem, zapraszam do kontaktu.",
     specializations: [
-      "Child Psychiatry",
-      "Neurodevelopmental Disorders",
-      "ADHD",
-      "Eating Disorders in Adolescents",
+      "Psychologia dziecięca",
+      "Spektrum autyzmu",
+      "Terapia behawioralna",
+      "Trudności szkolne",
+      "Zaburzenia lękow",
+
     ],
-    education: [
-      "Medical University of Łódź",
-      "Specialization in Child and Adolescent Psychiatry",
-      "Postgraduate Studies in Developmental Psychology",
-    ],
-    certifications: [
-      "ADHD Therapist Certificate",
-      "Autism Spectrum Disorder Diagnostic Certificate",
-      "European Certificate in Child Psychiatry",
-    ],
+ 
   },
   {
     id: "6",
-    name: "mgr Tomasz Zieliński",
-    role: "Psychotherapist",
+    name: "Mgr Michalina Tańska",
+    role: "Psycholog",
     image:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "/images/pic6.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    bio: "Mgr. Tomasz Zieliński specializes in couples and family therapy and leads support groups. He has many years of experience working with individuals experiencing relationship crises and family problems. He is a certified systemic therapist.",
+         "/images/pic6.png",
+    bio: "Ukończyłam psychologię na Uniwersytecie SWPS w Sopocie. Następnie kontynuowałam naukę na Uniwersytecie Jagiellońskim w Krakowie jako studentka studiów doktoranckich. Z pasji do nauki i diagnozy zostałam słuchaczką studiów podyplomowych “Diagnoza Psychologiczna w Praktyce Klinicznej” na Uniwersytecie SWPS w Krakowie. Od 2024 r. rozpoczęłam 4-letni kurs w szkole psychoterapii CBT EDU. Rozwój na wielu płaszczyznach jest dla mnie bardzo istotny, dlatego ukończyłam również kurs I stopnia TSR( Terapia Skoncentrowana na Rozwiązaniach ).TSR pozwala mi skupiać się na celach i zasobach pacjentów, wsłuchiwać się w ich potrzeby i koncentrować na rozwiązaniach.Bliska mi jest również Terapia Poznawczo- Behawioralna.Poza studiami nieustannie doskonalę warsztat pracy uczestnicząc w kursach “Diagnoza osobowości w praktyce” ( 20 godzin dydaktycznych) oraz szkoleniu z zakresu MMP - 2( 20 godzin ).Zajmuję się głównie diagnozą przy użyciu kwestionariusza MMPI - 2.Poza diagnozą jednym z moich zainteresowań są również zaburzenia afektywne.W czerwcu ubiegłego roku prowadziłam autorskie warsztaty dla osób chorych na ChAD razem z krakowską Fundacją Bez Klamek.W wolnym czasie zajmuję się promocją zdrowia psychicznego.Wiem, że pierwsza( i czasem nie tylko pierwsza ) wizyta w gabinecie jest bardzo trudna.Żeby tu dotrzeć muszą wykonać Państwo ogromną pracę i pokonać wiele małych i większych przeszkód, żeby zawalczyć o swój dobrostan.Bardzo to doceniam i dokonam największych starań, żeby każde spotkanie upłynęło w przyjaznej i serdecznej atmosferze.",
     specializations: [
-      "Couples Therapy",
-      "Family Therapy",
-      "Family Mediation",
-      "Crisis Intervention",
+      "Diagnoza psychologiczna",
+      "Psychologia kliniczna",
+      "Zaburzenia afektywne",
+      "Terapia poznawczo-behawioralna (CBT)",
+      "Zaburzenia osobowości",
+
     ],
-    education: [
-      "University of Warsaw - Psychology",
-      "Family Therapy Studies",
-      "Family Mediation School",
-    ],
-    certifications: [
-      "Systemic Therapist Certificate",
-      "Family Mediator Certificate",
-      "EFT Therapist Certificate",
-    ],
+   
   },
   {
     id: "7",
-    name: "dr n. med. Sarah Chen",
-    role: "Psychiatrist, Psychopharmacology Expert",
+    name: "Mgr Bogna Kaźmierczak",
+    role: "Psycholog Kliniczny, Diagnosta",
     image:
-      "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+       "/images/pic7.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Dr. Sarah Chen is an expert in psychopharmacology and the treatment of therapy-resistant mental disorders. She conducts research on new antidepressant medications and collaborates with international research centers. Dr. Chen is the author of numerous publications in the field of pharmacotherapy of mental disorders.",
+        "/images/pic7.png",
+    bio: "Specjalista psychologii klinicznej z wieloletnim doświadczeniem zawodowym w kompleksowej diagnostyce psychologicznej oraz terapii pacjentów. Posiada szczególne umiejętności w zakresie oceny osobowości oraz diagnozowania zaburzeń neurorozwojowych, takich jak ADHD czy zaburzenia ze spektrum autyzmu.Od wielu lat związana zawodowo z Oddziałem Psychiatrycznym Wojewódzkiego Szpitala Psychiatrycznego im.Tadeusza Bilikiewicza w Gdańsku, gdzie prowadzi pogłębioną diagnostykę i terapię osób z zaburzeniami psychicznymi.Od 2002 roku prowadzi także wieloletnią praktykę prywatną, zapewniając kompleksową pomoc psychologiczną w warunkach ambulatoryjnych.Dysponuje rozległym doświadczeniem w obszarze psychologii sądowej – przez 5 kadencji pełniła funkcję biegłej sądowej przy Sądzie Okręgowym w Gdańsku, sporządzając ekspertyzy i opinie w zakresie psychologii klinicznej.Jest psychologiem wpisanym na listę specjalistów uprawnionych przez Komendanta Wojewódzkiego Policji w Gdańsku do przeprowadzania badań osób ubiegających się o pozwolenie na broń oraz kandydatów na stanowiska sędziego, prokuratora czy kuratora.Dodatkowo posiada uprawnienia do przeprowadzania badań psychologicznych z zakresu psychologii transportu oraz jest certyfikowanym psychologiem uprawnionym do wykonywania badań odwoławczych w Wojewódzkim Ośrodku Medycyny Pracy.Dzięki wysokim kompetencjom diagnostycznym, rzetelności oraz długoletniemu doświadczeniu zapewnia najwyższy poziom świadczonych usług, gwarantując pacjentom precyzyjne rozpoznanie i odpowiednio dopasowaną pomoc psychologiczną.",
     specializations: [
-      "Psychopharmacology",
-      "Treatment-Resistant Disorders",
-      "Bipolar Affective Disorders",
-      "Pharmacogenetics",
+      "Psychologia kliniczna",
+      "Diagnoza osobowości",
+      "ADHD i spektrum autyzmu",
+      "Psychologia sądowa",
+      "Zaburzenia psychiczne dorosłych",
+
     ],
-    education: [
-      "Stanford University School of Medicine",
-      "Ph.D. in Clinical Psychopharmacology",
-      "Fellowship in Biological Psychiatry",
-    ],
-    certifications: [
-      "American Board of Psychiatry Certification",
-      "Clinical Pharmacogenetics Certificate",
-      "Clinical Trial Principal Investigator Certificate",
-    ],
+   
   },
   {
     id: "8",
-    name: "mgr Aleksandra Dąbrowska",
-    role: "Psychologist, EMDR Therapist",
+    name: "Mgr Martyna Romanowska",
+    role: "Psycholog Dziecięcy",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+        "/images/pic8.png",
     imageLarge:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Mgr. Aleksandra Dąbrowska specializes in trauma and PTSD therapy using the EMDR method. She has extensive experience working with individuals who have experienced traumatic events, including victims of violence and accidents. She also conducts workshops on stress management techniques.",
+       "/images/pic8.png",
+    bio: "Jestem psychologiem i na co dzień wspieram dzieci ze spektrum autyzmu oraz ich rodziców. Ukończyłam psychologię ze specjalnością psychologia kliniczna. Mam doświadczenie w terapii indywidualnej, psychoedukacji rodziców oraz wspieraniu rozwoju dzieci poprzez elementy Metody Krakowskiej.Ciągle się uczę i rozwijam, by jak najlepiej pomagać dzieciom oraz ich rodzinom – wierzę, że każde dziecko ma ogromny potencjał, który warto odkrywać i wspierać.Pomagam im lepiej rozumieć świat, a rodzicom – lepiej rozumieć swoje dzieci, by mogli je skutecznie wspierać na ich drodze rozwoju. Zakres usług • Opinia psychologiczna • Konsultacja psychologiczna (rodzic/rodzic+dziecko) • Konsultacja psychologiczna dziecka z orzeczeniem (autyzm) • Porada psychologiczna online • Poradnictwo wychowawcze • Konsultacja z zakresu higieny snu dziecka • Pierwsze kroki po diagnozie autyzmu - konsultacja z rodzicami • Terapia indywidualna dziecka z autyzmem • Wsparcie psychologiczne dla rodziców",
     specializations: [
-      "EMDR Therapy",
-      "PTSD Treatment",
-      "Trauma Therapy",
-      "Crisis Intervention",
+      "Psychologia dziecięca",
+      "Spektrum autyzmu",
+      "Wsparcie rodziny",
+      "Terapia rozwojowa",
+      "Higiena snu dziecka ",
+
     ],
-    education: [
-      "SWPS University of Social Sciences and Humanities - Clinical Psychology",
-      "EMDR Therapy Training",
-      "Crisis Intervention Studies",
-    ],
-    certifications: [
-      "EMDR Therapist Certificate",
-      "Psychotraumatology Specialist Certificate",
-      "Crisis Interventionist Certificate",
-    ],
+    
   },
-  {
-    id: "9",
-    name: "dr n. med. Michał Wojciechowski",
-    role: "Psychiatrist, Addiction Specialist",
-    image:
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    imageLarge:
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    bio: "Dr. Michał Wojciechowski is a psychiatry specialist and an expert in the field of addictions. He leads the behavioral and chemical addiction treatment program. With many years of experience in addiction therapy and creating preventive programs, Dr. Wojciechowski is dedicated to helping individuals overcome dependencies.",
-    specializations: [
-      "Addiction Treatment",
-      "Behavioral Addiction Therapy",
-      "Detoxification",
-      "Addiction Prevention",
-    ],
-    education: [
-      "Medical University of Poznań",
-      "Specialization in Psychiatry",
-      "Addiction Therapy Specialist Certification",
-    ],
-    certifications: [
-      "Addiction Psychotherapy Specialist Certificate",
-      "Addiction Therapy Supervisor Certificate",
-      "European Certificate in Addiction Medicine",
-    ],
-  },
+
 ];
