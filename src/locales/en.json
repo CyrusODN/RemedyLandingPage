@@ -1104,5 +1104,17 @@
   "From a few months to a year or longer, depending on needs": "From a few months to a year or longer, depending on needs",
   "psychotherapyPage.costs.coordinatingTherapistConsultation": "Consultation with Coordinating Therapist",
   "psychotherapyPage.startTherapy.title": "Start Therapy",
-  "psychotherapyPage.startTherapy.description": "Schedule a consultation with a coordinating therapist to start your journey to change."
+  "psychotherapyPage.startTherapy.description": "Schedule a consultation with a coordinating therapist to start your journey to change.",
+  "servicePage.childYouthTherapy.title": "Diagnostics and Psychological Support for Children and Youth",
+  "servicePage.childYouthTherapy.description": "Comprehensive diagnostic and therapeutic support for children and youth, tailored to individual needs.",
+  "Initial consultation": "Initial consultation",
+  "Psychological diagnosis": "Psychological diagnosis",
+  "Therapy plan establishment": "Therapy plan establishment",
+  "Regular therapy sessions": "Regular therapy sessions",
+  "Experienced team of specialists": "Experienced team of specialists",
+  "Various forms of therapy": "Various forms of therapy",
+  "Regular progress assessment": "Regular progress assessment",
+  "servicePage.childService.detailsTitle": "Service Details:",
+  "Benefits": "Benefits",
+  "servicePage.childYouthTherapy.ctaDescription": "Schedule the first consultation to begin the therapeutic process."
 }
