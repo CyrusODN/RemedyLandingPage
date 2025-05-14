@@ -1153,5 +1153,6 @@
   "childServices.psychoeducation.services.emotionalDevelopmentWorkshops.name": "Warsztaty wspierające rozwój emocjonalny",
   "childServices.psychoeducation.services.adaptationDifficultiesSupport.name": "Wsparcie dzieci z trudnościami w adaptacji",
   "childServices.drugResistant.services.treatmentResistantSupport.name": "Wsparcie w funkcjonowaniu dzieci lekoopornych",
-  "childServices.drugResistant.services.nonPharmacologicalSupport.name": "Pomoc w codziennym funkcjonowaniu bez udziału farmakoterapii"
+  "childServices.drugResistant.services.nonPharmacologicalSupport.name": "Pomoc w codziennym funkcjonowaniu bez udziału farmakoterapii",
+  "Individual Psychotherapy": "Psychoterapia Indywidualna"
 }
