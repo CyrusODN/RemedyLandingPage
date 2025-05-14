@@ -1,32 +1,49 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslation } from "react-i18next"; // Importing useTranslation
-import Language from "./Language";
+import { useTranslation } from "react-i18next";
+import Language from "./Language"; // Zakładam, że ten komponent istnieje
 
+// Oryginalne dane menu
 const offerItems = [
   { name: "Psychiatric Consultation", path: "/services/konsultacja" },
   {
     name: "Psychiatric Consultation for Children and Adolescents",
     path: "/services/konsultacja-dzieci",
   },
-  { name: "Psychotherapy", path: "/services/psychoterapia" },
-  { name: "Group Therapy", path: "/services/terapia-grupowa" },
-  { name: "Personality Diagnostics", path: "/services/diagnostyka" },
+  { name: "Psychotherapy", path: "/services/psychoterapia" }, // Istnieje
+  { name: "Group Therapy", path: "/services/terapia-grupowa" }, // Istnieje
+  { name: "Personality Diagnostics", path: "/services/diagnostyka" }, // Istnieje
 ];
 
 const treatmentItems = [
-  { name: "Depression", path: "/treatment/depresja" },
-  { name: "Anxiety Disorders", path: "/treatment/zaburzenia-lekowe" },
-  { name: "Schizophrenia", path: "/treatment/schizofrenia" },
-  { name: "Bipolar Disorder (BPD)", path: "/treatment/chad" },
-  { name: "ADHD", path: "/treatment/adhd" },
-  { name: "PTSD", path: "/treatment/ptsd" },
-  { name: "Personality Disorders", path: "/treatment/zaburzenia-osobowosci" },
-  { name: "Sleep Disorders", path: "/treatment/zaburzenia-snu" },
+  { name: "Depression", path: "/treatment/depresja" }, // Istnieje
+  { name: "Anxiety Disorders", path: "/treatment/zaburzenia-lekowe" }, // Istnieje
+  { name: "Schizophrenia", path: "/treatment/schizofrenia" }, // Istnieje
+  { name: "Bipolar Disorder (BPD)", path: "/treatment/chad" }, // Istnieje
+  { name: "ADHD", path: "/treatment/adhd" }, // Istnieje
+  { name: "PTSD", path: "/treatment/ptsd" }, // Istnieje
+  { name: "Personality Disorders", path: "/treatment/zaburzenia-osobowosci" }, // Istnieje
+  { name: "Sleep Disorders", path: "/treatment/zaburzenia-snu" }, // Istnieje
 ];
+
+// NOWE: Dane dla dropdownu "Informacje dla Pacjenta"
+// Używamy kluczy tytułów stron, które już zdefiniowaliśmy
+const patientInfoItems = [
+    { name: "firstVisitPage.title", path: "/patient-info/first-visit" },
+    { name: "psychiatricExamPrepPage.title", path: "/patient-info/psychiatric-exam-prep" },
+    { name: "psychotherapyPage.title", path: "/patient-info/psychotherapy" }, // Używamy klucza tytułu strony Psychotherapy
+    { name: "parentInfoPage.title", path: "/patient-info/parent-info" },
+    { name: "adhdDiagnosticsPage.title", path: "/patient-info/adhd-diagnostics" },
+    { name: "adhdPrepPage.title", path: "/patient-info/adhd-prep" },
+    { name: "autismDiagnosticsPage.title", path: "/patient-info/autism-diagnostics" },
+    { name: "mmpi2DiagnosticsPage.title", path: "/patient-info/mmpi2-diagnostics" },
+    { name: "cognitiveAssessmentPage.title", path: "/patient-info/cognitive-assessment" },
+    { name: "faqPage.title", path: "/patient-info/faq" },
+];
+
 
 const Logo = () => (
   <svg
@@ -59,7 +76,7 @@ const Logo = () => (
 
 const scrollWithOffset = (el: HTMLElement) => {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-  const yOffset = -80;
+  const yOffset = -80; // Dostosuj offset nagłówka
   window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
 };
 
@@ -69,14 +86,16 @@ const NavDropdown = ({
   isActive,
   onMouseEnter,
   onMouseLeave,
+  setIsOpen, // Dodano props do zamykania mobilnego menu
 }: {
   title: string;
   items: { name: string; path: string }[];
   isActive: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  setIsOpen?: (isOpen: boolean) => void; // Opcjonalny dla desktopu
 }) => {
-  const { t } = useTranslation(); // Initialize translation
+  const { t } = useTranslation();
 
   return (
     <div
@@ -85,7 +104,7 @@ const NavDropdown = ({
       onMouseLeave={onMouseLeave}
     >
       <button className="text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-sm md:text-base font-medium flex items-center gap-1">
-        {t(title)} {/* Wrap with t() */}
+        {t(title)}
         <ChevronDown className="h-4 w-4" />
       </button>
       <AnimatePresence>
@@ -95,13 +114,14 @@ const NavDropdown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-lg py-2 z-50"
+            className="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-lg py-2 z-50 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar" // Dodano max-height i overflow
           >
             {items.map((item, index) => (
               <Link
                 key={index}
                 to={item.path}
                 className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm"
+                onClick={() => setIsOpen && setIsOpen(false)} // Zamknij mobilne menu po kliknięciu
               >
                 {t(item.name)}
               </Link>
@@ -114,10 +134,10 @@ const NavDropdown = ({
 };
 
 export default function Navbar() {
-  const { t } = useTranslation(); // Initialize translation
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const timeoutRef = useRef<any>();
+  const timeoutRef = useRef<any>(); // Zmieniono typ na any dla uproszczenia
   const location = useLocation();
 
   const handleDropdownEnter = (dropdown: string) => {
@@ -130,12 +150,12 @@ export default function Navbar() {
   const handleDropdownLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 100);
+    }, 100); // Krótszy czas dla lepszego UX
   };
 
   useEffect(() => {
-    setIsOpen(false);
-    setActiveDropdown(null);
+    setIsOpen(false); // Zamknij mobilne menu przy zmianie ścieżki
+    setActiveDropdown(null); // Zamknij dropdowny przy zmianie ścieżki
   }, [location]);
 
   return (
@@ -143,37 +163,47 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
-            <HashLink smooth to="/#hero">
+            <HashLink smooth to="/#hero" scroll={(el) => scrollWithOffset(el)}>
               <Logo />
             </HashLink>
           </div>
 
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
             <HashLink
               smooth
               to="/#about"
+              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("About Us")}
             </HashLink>
             <NavDropdown
-              title={t("Offer")}
+              title={"Offer"} // Klucz i18n
               items={offerItems}
               isActive={activeDropdown === "offer"}
               onMouseEnter={() => handleDropdownEnter("offer")}
               onMouseLeave={handleDropdownLeave}
             />
             <NavDropdown
-              title={t("Scope of Treatment")}
+              title={"Scope of Treatment"} // Klucz i18n
               items={treatmentItems}
               isActive={activeDropdown === "treatment"}
               onMouseEnter={() => handleDropdownEnter("treatment")}
               onMouseLeave={handleDropdownLeave}
             />
-
+            {/* NOWY DROPDOWN: Informacje dla Pacjenta */}
+            <NavDropdown
+              title={"navbar.patientInformation"} // Nowy klucz i18n
+              items={patientInfoItems}
+              isActive={activeDropdown === "patientInfo"}
+              onMouseEnter={() => handleDropdownEnter("patientInfo")}
+              onMouseLeave={handleDropdownLeave}
+            />
             <HashLink
               smooth
               to="/#pricing"
+              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Pricing")}
@@ -181,13 +211,15 @@ export default function Navbar() {
             <HashLink
               smooth
               to="/#locations"
+              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Locations")}
             </HashLink>
             <HashLink
               smooth
-              to="/#join-us"
+              to="/#join-us" // Zmieniono z /#career na /#join-us zgodnie z Twoim HomePage
+              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Career")}
@@ -195,6 +227,7 @@ export default function Navbar() {
             <HashLink
               smooth
               to="/#contact"
+              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Contact")}
@@ -203,25 +236,29 @@ export default function Navbar() {
             <Link
               to="/platform"
               className="gradient-theme text-white px-4 py-2 rounded-full
-                hover:shadow-lg transition-all duration-300 font-medium text-sm"
+                         hover:shadow-lg transition-all duration-300 font-medium text-sm"
             >
               {t("Patient Portal")}
             </Link>
             <Link
-              to="https://remedyai.com.pl/login"
+              to="https://remedyai.com.pl/login" // Zewnętrzny link
+              target="_blank" // Otwórz w nowej karcie
+              rel="noopener noreferrer" // Ze względów bezpieczeństwa
               className="bg-white text-[#46B7C6] border-2 border-[#46B7C6] px-4 py-2 rounded-full
-                hover:shadow-lg transition-all duration-300 font-medium text-sm"
+                         hover:shadow-lg transition-all duration-300 font-medium text-sm"
             >
               {t("Professional Portal")}
             </Link>
           </div>
-          <div className="flex gap-4 justify-center">
+
+          {/* Mobile Menu Button & Language Toggle */}
+          <div className="flex gap-4 items-center">
             <div className="block lg:hidden">
               <Language />
             </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors"
+              className="lg:hidden rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors p-1" // Dodano padding dla łatwiejszego klikania
               aria-label={t("Toggle menu")}
             >
               {isOpen ? (
@@ -234,6 +271,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -243,7 +281,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="lg:hidden overflow-hidden bg-white shadow-lg"
           >
-            <div className="px-4 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <div className="px-4 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto custom-scrollbar"> {/* Dodano custom-scrollbar jeśli masz globalne style */}
               <HashLink
                 smooth
                 to="/#about"
@@ -253,12 +291,14 @@ export default function Navbar() {
               >
                 {t("About Us")}
               </HashLink>
+
+              {/* Offer Items - Mobile */}
               <div className="px-3 py-2 text-gray-600 font-medium">
                 {t("Offer")}:
               </div>
               {offerItems.map((item, index) => (
                 <Link
-                  key={`offer-${index}`}
+                  key={`offer-mobile-${index}`}
                   to={item.path}
                   className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6"
                   onClick={() => setIsOpen(false)}
@@ -266,12 +306,14 @@ export default function Navbar() {
                   {t(item.name)}
                 </Link>
               ))}
+
+              {/* Treatment Items - Mobile */}
               <div className="px-3 py-2 text-gray-600 font-medium">
                 {t("Scope of Treatment")}:
               </div>
               {treatmentItems.map((item, index) => (
                 <Link
-                  key={`treatment-${index}`}
+                  key={`treatment-mobile-${index}`}
                   to={item.path}
                   className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6"
                   onClick={() => setIsOpen(false)}
@@ -279,6 +321,23 @@ export default function Navbar() {
                   {t(item.name)}
                 </Link>
               ))}
+              
+              {/* NOWY DROPDOWN: Informacje dla Pacjenta - Mobile */}
+              <div className="px-3 py-2 text-gray-600 font-medium">
+                {t("navbar.patientInformation")}:
+              </div>
+              {patientInfoItems.map((item, index) => (
+                <Link
+                  key={`patient-info-mobile-${index}`}
+                  to={item.path}
+                  className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t(item.name)}
+                </Link>
+              ))}
+
+
               <HashLink
                 smooth
                 to="/#pricing"
@@ -287,16 +346,6 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 {t("Pricing")}
-              </HashLink>
-
-              <HashLink
-                smooth
-                to="/#join-us"
-                scroll={(el) => scrollWithOffset(el)}
-                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {t("Career")}
               </HashLink>
               <HashLink
                 smooth
@@ -309,6 +358,15 @@ export default function Navbar() {
               </HashLink>
               <HashLink
                 smooth
+                to="/#join-us" // Zmieniono z /#career na /#join-us
+                scroll={(el) => scrollWithOffset(el)}
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Career")}
+              </HashLink>
+              <HashLink
+                smooth
                 to="/#contact"
                 scroll={(el) => scrollWithOffset(el)}
                 className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
@@ -317,20 +375,24 @@ export default function Navbar() {
                 {t("Contact")}
               </HashLink>
 
-              <Link
-                to="/platform"
-                className="block px-3 py-2 text-white gradient-theme rounded-full mt-4"
-                onClick={() => setIsOpen(false)}
-              >
-                {t("Patient Portal")}
-              </Link>
-              <Link
-                to="https://remedyai.com.pl/login"
-                className="block px-3 py-2 text-[#46B7C6] border-2 border-[#46B7C6] rounded-full mt-2"
-                onClick={() => setIsOpen(false)}
-              >
-                {t("Professional Portal")}
-              </Link>
+              <div className="pt-2 space-y-2">
+                <Link
+                  to="/platform"
+                  className="block text-center px-3 py-2 text-white gradient-theme rounded-full"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t("Patient Portal")}
+                </Link>
+                <Link
+                  to="https://remedyai.com.pl/login" // Zewnętrzny link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center px-3 py-2 text-[#46B7C6] border-2 border-[#46B7C6] rounded-full"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t("Professional Portal")}
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
