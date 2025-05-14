@@ -1116,5 +1116,20 @@
   "Regular progress assessment": "Regular progress assessment",
   "servicePage.childService.detailsTitle": "Service Details:",
   "Benefits": "Benefits",
-  "servicePage.childYouthTherapy.ctaDescription": "Schedule the first consultation to begin the therapeutic process."
+  "servicePage.childYouthTherapy.ctaDescription": "Schedule the first consultation to begin the therapeutic process.",
+  "ADHD: 80% of patients report improvement in functioning": "80% of patients report improvement in functioning",
+  "Personality Disorder: 70% of patients achieve significant improvement": "70% of patients achieve significant improvement",
+  "treatmentPage.emotionalBehavioralDisorders.title": "Treatment of Emotional and Behavioral Disorders",
+  "treatmentPage.emotionalBehavioralDisorders.description": "Comprehensive therapeutic support for children and adolescents with emotional and behavioral difficulties.",
+  "Difficulties in emotion regulation": "Difficulties in emotion regulation",
+  "Problems in social relationships": "Problems in social relationships",
+  "Oppositional defiant behaviors": "Oppositional defiant behaviors",
+  "Selective mutism": "Selective mutism",
+  "Anxiety and low self-esteem": "Anxiety and low self-esteem",
+  "Depressive symptoms": "Depressive symptoms",
+  "Adaptation difficulties": "Adaptation difficulties",
+  "Play therapy": "Play therapy",
+  "Systemic family therapy": "Systemic family therapy",
+  "treatmentPage.emotionalBehavioralDisorders.duration": "Individually tailored to needs",
+  "treatmentPage.emotionalBehavioralDisorders.success": "80% of patients achieve significant improvement in functioning"
 }
