@@ -1,133 +1,31 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"; // Importing useTranslation
 import Language from "./Language";
 
-// Definicje typów dla elementów nawigacji
-interface NavLinkItem {
-  name: string; // Bezpośrednia angielska fraza (klucz i18n)
-  path: string;
-  type?: 'link';
-}
-
-interface NavCategory {
-  category: string; // Bezpośrednia angielska fraza (klucz i18n)
-  items: NavLinkItem[];
-}
-
-interface NavDropdownConfig {
-  type: 'dropdown';
-  title: string; // Bezpośrednia angielska fraza (klucz i18n)
-  items: (NavLinkItem | NavCategory)[];
-}
-
-interface NavDirectLinkConfig {
-  type: 'link';
-  name: string; // Bezpośrednia angielska fraza (klucz i18n)
-  path: string;
-}
-
-type NavigationItem = NavDropdownConfig | NavDirectLinkConfig;
-
-// ZAKTUALIZOWANA STRUKTURA DANYCH NAWIGACJI
-const navigationItems: NavigationItem[] = [
+const offerItems = [
+  { name: "Psychiatric Consultation", path: "/services/konsultacja" },
   {
-    type: 'link',
-    name: 'About Us',
-    path: '/#about'
+    name: "Psychiatric Consultation for Children and Adolescents",
+    path: "/services/konsultacja-dzieci",
   },
-  {
-    type: 'dropdown',
-    title: 'Offer',
-    items: [
-      {
-        category: 'Psychiatric Consultations',
-        items: [
-          { name: 'Psychiatric Consultation', path: '/services/konsultacja' },
-          { name: 'Psychiatric Consultation for Children and Adolescents', path: '/services/konsultacja-dzieci' }
-        ]
-      },
-      {
-        category: 'Psychotherapy', // Używamy istniejącego klucza "Psychotherapy" jako nazwy kategorii
-        items: [
-          // Zgodnie z Twoim "roboczym" plikiem, nazwa linku to "Psychoterapia Indywidualna"
-          // Jeśli ma to być ten sam klucz co tytuł strony, to można użyć "psychotherapyPage.title"
-          // Dla jasności i zgodności z Twoim przykładem, użyję nowego klucza.
-          { name: 'Individual Psychotherapy', path: '/patient-info/psychotherapy' }
-        ]
-      },
-      {
-        category: 'Neurodevelopmental Diagnostics',
-        items: [
-          { name: 'adhdDiagnosticsPage.title', path: '/patient-info/adhd-diagnostics' }, // Użycie tytułu strony jako nazwy linku
-          { name: 'autismDiagnosticsPage.title', path: '/patient-info/autism-diagnostics' } // Użycie tytułu strony
-        ]
-      },
-      {
-        category: 'Personality Diagnostics', // Używamy istniejącego klucza
-        items: [
-          { name: 'mmpi2DiagnosticsPage.title', path: '/patient-info/mmpi2-diagnostics' } // Użycie tytułu strony
-        ]
-      },
-      {
-        category: 'Psychological Diagnostics and Support', // Używamy istniejącego klucza
-        items: [
-          { name: 'cognitiveAssessmentPage.title', path: '/patient-info/cognitive-assessment' },
-          { name: 'childServices.diagnostics.services.intelligenceTest.name', path: '/services/terapia-dzieci-mlodziez#diagnostics' },
-          { name: 'childServices.diagnostics.services.dyslexiaDiagnosis.name', path: '/services/terapia-dzieci-mlodziez#diagnostics' },
-          { name: 'childServices.diagnostics.services.emotionalDevelopmentAssessment.name', path: '/services/terapia-dzieci-mlodziez#diagnostics' },
-          { name: 'childServices.therapy.services.emotionalBehavioralTherapy.name', path: '/services/terapia-dzieci-mlodziez#therapy' },
-          { name: 'childServices.therapy.services.selectiveMutismSupport.name', path: '/services/terapia-dzieci-mlodziez#therapy' },
-          { name: 'childServices.therapy.services.oppositionalDefiantDisorder.name', path: '/services/terapia-dzieci-mlodziez#therapy' },
-          { name: 'childServices.therapy.services.anxietyLowSelfEsteemSupport.name', path: '/services/terapia-dzieci-mlodziez#therapy' },
-          { name: 'childServices.therapy.services.depressiveSymptomsWork.name', path: '/services/terapia-dzieci-mlodziez#therapy' },
-          { name: 'childServices.communication.services.aac.name', path: '/services/terapia-dzieci-mlodziez#communication' },
-          { name: 'childServices.communication.services.socialDifficultiesTherapy.name', path: '/services/terapia-dzieci-mlodziez#communication' },
-          { name: 'childServices.communication.services.autismSpectrumWork.name', path: '/services/terapia-dzieci-mlodziez#communication' },
-          { name: 'childServices.psychoeducation.services.sleepHygieneEducation.name', path: '/services/terapia-dzieci-mlodziez#psychoeducation' },
-          { name: 'childServices.psychoeducation.services.emotionalDevelopmentWorkshops.name', path: '/services/terapia-dzieci-mlodziez#psychoeducation' },
-          { name: 'childServices.psychoeducation.services.adaptationDifficultiesSupport.name', path: '/services/terapia-dzieci-mlodziez#psychoeducation' },
-          { name: 'childServices.drugResistant.services.treatmentResistantSupport.name', path: '/services/terapia-dzieci-mlodziez#drugResistant' },
-          { name: 'childServices.drugResistant.services.nonPharmacologicalSupport.name', path: '/services/terapia-dzieci-mlodziez#drugResistant' }
-        ]
-      },
-      // Dodajemy pozostałe usługi, które były płasko w "Oferta"
-      { name: "Group Therapy", path: "/services/terapia-grupowa" },
-      { name: "Clinical Trials - Preliminary Qualification", path: "/services/kwalifikacja-do-badan" }
-    ]
-  },
-  {
-    type: 'dropdown',
-    title: 'Scope of Treatment',
-    items: [
-      { name: 'Depression', path: '/treatment/depresja' },
-      { name: 'Anxiety Disorders', path: '/treatment/zaburzenia-lekowe' },
-      { name: 'Schizophrenia', path: '/treatment/schizofrenia' },
-      { name: 'Bipolar Disorder (BPD)', path: '/treatment/chad' },
-      { name: 'ADHD', path: '/treatment/adhd' },
-      { name: 'PTSD', path: '/treatment/ptsd' },
-      { name: 'Personality Disorders', path: '/treatment/zaburzenia-osobowosci' },
-      { name: 'Sleep Disorders', path: '/treatment/zaburzenia-snu' },
-      { name: 'treatmentPage.emotionalBehavioralDisorders.title', path: '/treatment/zaburzenia-emocjonalne-zachowania' }
-    ]
-  },
-  {
-    type: 'dropdown',
-    title: 'Patient Information', // Używamy istniejącego klucza
-    items: [ // Uproszczona lista zgodnie z Twoim "roboczym" plikiem
-      { name: 'psychiatricExamPrepPage.title', path: '/patient-info/psychiatric-exam-prep' },
-      { name: 'firstVisitPage.title', path: '/patient-info/first-visit' },
-      { name: 'parentInfoPage.title', path: '/patient-info/parent-info' },
-      { name: 'faqPage.title', path: '/patient-info/faq' },
-    ]
-  },
-  { type: 'link', name: 'Pricing', path: '/#pricing' },
-  { type: 'link', name: 'Locations', path: '/#locations' },
-  { type: 'link', name: 'Career', path: '/#join-us' },
-  { type: 'link', name: 'Contact', path: '/#contact' }
+  { name: "Psychotherapy", path: "/services/psychoterapia" },
+  { name: "Group Therapy", path: "/services/terapia-grupowa" },
+  { name: "Personality Diagnostics", path: "/services/diagnostyka" },
+];
+
+const treatmentItems = [
+  { name: "Depression", path: "/treatment/depresja" },
+  { name: "Anxiety Disorders", path: "/treatment/zaburzenia-lekowe" },
+  { name: "Schizophrenia", path: "/treatment/schizofrenia" },
+  { name: "Bipolar Disorder (BPD)", path: "/treatment/chad" },
+  { name: "ADHD", path: "/treatment/adhd" },
+  { name: "PTSD", path: "/treatment/ptsd" },
+  { name: "Personality Disorders", path: "/treatment/zaburzenia-osobowosci" },
+  { name: "Sleep Disorders", path: "/treatment/zaburzenia-snu" },
 ];
 
 const Logo = () => (
@@ -171,16 +69,14 @@ const NavDropdown = ({
   isActive,
   onMouseEnter,
   onMouseLeave,
-  setIsOpen,
 }: {
   title: string;
-  items: NavDropdownItem[];
+  items: { name: string; path: string }[];
   isActive: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-  setIsOpen?: (isOpen: boolean) => void;
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Initialize translation
 
   return (
     <div
@@ -188,8 +84,8 @@ const NavDropdown = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <button className="text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-sm md:text-base font-medium flex items-center gap-1 whitespace-nowrap">
-        {t(title)}
+      <button className="text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-sm md:text-base font-medium flex items-center gap-1">
+        {t(title)} {/* Wrap with t() */}
         <ChevronDown className="h-4 w-4" />
       </button>
       <AnimatePresence>
@@ -199,39 +95,17 @@ const NavDropdown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={`absolute left-0 mt-1 ${title === 'Offer' ? 'w-96' : 'w-80'} bg-white rounded-lg shadow-lg py-1 z-50 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar`}
+            className="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-lg py-2 z-50"
           >
-            {items.map((item, index) => {
-              if ('category' in item) {
-                return (
-                  <div key={`category-${index}`} className="pt-2 pb-1">
-                    <h3 className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                      {t(item.category)}
-                    </h3>
-                    {item.items.map((subItem, subIndex) => (
-                      <Link
-                        key={`subitem-${index}-${subIndex}`}
-                        to={subItem.path}
-                        className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm rounded-md"
-                        onClick={() => setIsOpen && setIsOpen(false)}
-                      >
-                        {t(subItem.name)}
-                      </Link>
-                    ))}
-                  </div>
-                );
-              }
-              return (
-                <Link
-                  key={`item-${index}`}
-                  to={item.path}
-                  className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm"
-                  onClick={() => setIsOpen && setIsOpen(false)}
-                >
-                  {t(item.name)}
-                </Link>
-              );
-            })}
+            {items.map((item, index) => (
+              <Link
+                key={index}
+                to={item.path}
+                className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm"
+              >
+                {t(item.name)}
+              </Link>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
@@ -240,23 +114,23 @@ const NavDropdown = ({
 };
 
 export default function Navbar() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Initialize translation
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const timeoutRef = useRef<any>();
   const location = useLocation();
 
-  const handleDropdownEnter = (dropdownTitle: string) => {
+  const handleDropdownEnter = (dropdown: string) => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    setActiveDropdown(dropdownTitle);
+    setActiveDropdown(dropdown);
   };
 
   const handleDropdownLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 150);
+    }, 100);
   };
 
   useEffect(() => {
@@ -269,65 +143,85 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
-            <HashLink smooth to="/#hero" scroll={(el) => scrollWithOffset(el)}>
+            <HashLink smooth to="/#hero">
               <Logo />
             </HashLink>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-            {navigationItems.map((navItem, index) => {
-              if (navItem.type === 'link') {
-                return (
-                  <HashLink
-                    key={index}
-                    smooth
-                    to={navItem.path}
-                    scroll={(el) => scrollWithOffset(el)}
-                    className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium whitespace-nowrap"
-                  >
-                    {t(navItem.name)}
-                  </HashLink>
-                );
-              }
-              if (navItem.type === 'dropdown') {
-                return (
-                  <NavDropdown
-                    key={index}
-                    title={navItem.title}
-                    items={navItem.items}
-                    isActive={activeDropdown === navItem.title}
-                    onMouseEnter={() => handleDropdownEnter(navItem.title)}
-                    onMouseLeave={handleDropdownLeave}
-                    setIsOpen={setIsOpen}
-                  />
-                );
-              }
-              return null;
-            })}
+          <div className="hidden lg:flex items-center space-x-6">
+            <HashLink
+              smooth
+              to="/#about"
+              className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
+            >
+              {t("About Us")}
+            </HashLink>
+            <NavDropdown
+              title={t("Offer")}
+              items={offerItems}
+              isActive={activeDropdown === "offer"}
+              onMouseEnter={() => handleDropdownEnter("offer")}
+              onMouseLeave={handleDropdownLeave}
+            />
+            <NavDropdown
+              title={t("Scope of Treatment")}
+              items={treatmentItems}
+              isActive={activeDropdown === "treatment"}
+              onMouseEnter={() => handleDropdownEnter("treatment")}
+              onMouseLeave={handleDropdownLeave}
+            />
+
+            <HashLink
+              smooth
+              to="/#pricing"
+              className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
+            >
+              {t("Pricing")}
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#locations"
+              className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
+            >
+              {t("Locations")}
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#join-us"
+              className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
+            >
+              {t("Career")}
+            </HashLink>
+            <HashLink
+              smooth
+              to="/#contact"
+              className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
+            >
+              {t("Contact")}
+            </HashLink>
             <Language />
             <Link
               to="/platform"
               className="gradient-theme text-white px-4 py-2 rounded-full
-                         hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
+                hover:shadow-lg transition-all duration-300 font-medium text-sm"
             >
               {t("Patient Portal")}
             </Link>
             <Link
               to="https://remedyai.com.pl/login"
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-white text-[#46B7C6] border-2 border-[#46B7C6] px-4 py-2 rounded-full
-                         hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
+                hover:shadow-lg transition-all duration-300 font-medium text-sm"
             >
               {t("Professional Portal")}
             </Link>
           </div>
-
-          <div className="flex gap-4 items-center lg:hidden">
-            <Language />
+          <div className="flex gap-4 justify-center">
+            <div className="block lg:hidden">
+              <Language />
+            </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors p-1"
+              className="lg:hidden rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors"
               aria-label={t("Toggle menu")}
             >
               {isOpen ? (
@@ -349,78 +243,94 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="lg:hidden overflow-hidden bg-white shadow-lg"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto custom-scrollbar">
-              {navigationItems.map((navItem, index) => {
-                if (navItem.type === 'link') {
-                  return (
-                    <HashLink
-                      key={`mobile-link-${index}`}
-                      smooth
-                      to={navItem.path}
-                      scroll={(el) => scrollWithOffset(el)}
-                      className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors rounded-md"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {t(navItem.name)}
-                    </HashLink>
-                  );
-                }
-                if (navItem.type === 'dropdown') {
-                  return (
-                    <div key={`mobile-dropdown-${index}`} className="py-1">
-                      <div className="px-3 py-2 text-gray-800 font-semibold">{t(navItem.title)}:</div>
-                      {navItem.items.map((itemOrCategory, itemIndex) => {
-                        if ('category' in itemOrCategory) {
-                          return (
-                            <div key={`mobile-cat-${index}-${itemIndex}`} className="pl-3">
-                              <div className="px-3 py-1 text-sm text-gray-500 font-medium">{t(itemOrCategory.category)}</div>
-                              {itemOrCategory.items.map((subItem, subItemIndex) => (
-                                <Link
-                                  key={`mobile-subitem-${index}-${itemIndex}-${subItemIndex}`}
-                                  to={subItem.path}
-                                  className="block py-2 text-gray-600 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors pl-6 rounded-md"
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  {t(subItem.name)}
-                                </Link>
-                              ))}
-                            </div>
-                          );
-                        }
-                        return (
-                          <Link
-                            key={`mobile-item-${index}-${itemIndex}`}
-                            to={itemOrCategory.path}
-                            className="block py-2 text-gray-600 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors pl-6 rounded-md"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {t(itemOrCategory.name)}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  );
-                }
-                return null;
-              })}
-              <div className="pt-2 space-y-2 px-3">
-                <Link
-                  to="/platform"
-                  className="block text-center py-2 text-white gradient-theme rounded-full"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("Patient Portal")}
-                </Link>
-                <Link
-                  to="https://remedyai.com.pl/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center py-2 text-[#46B7C6] border-2 border-[#46B7C6] rounded-full"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("Professional Portal")}
-                </Link>
+            <div className="px-4 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
+              <HashLink
+                smooth
+                to="/#about"
+                scroll={(el) => scrollWithOffset(el)}
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("About Us")}
+              </HashLink>
+              <div className="px-3 py-2 text-gray-600 font-medium">
+                {t("Offer")}:
               </div>
+              {offerItems.map((item, index) => (
+                <Link
+                  key={`offer-${index}`}
+                  to={item.path}
+                  className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t(item.name)}
+                </Link>
+              ))}
+              <div className="px-3 py-2 text-gray-600 font-medium">
+                {t("Scope of Treatment")}:
+              </div>
+              {treatmentItems.map((item, index) => (
+                <Link
+                  key={`treatment-${index}`}
+                  to={item.path}
+                  className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t(item.name)}
+                </Link>
+              ))}
+              <HashLink
+                smooth
+                to="/#pricing"
+                scroll={(el) => scrollWithOffset(el)}
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Pricing")}
+              </HashLink>
+
+              <HashLink
+                smooth
+                to="/#join-us"
+                scroll={(el) => scrollWithOffset(el)}
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Career")}
+              </HashLink>
+              <HashLink
+                smooth
+                to="/#locations"
+                scroll={(el) => scrollWithOffset(el)}
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Locations")}
+              </HashLink>
+              <HashLink
+                smooth
+                to="/#contact"
+                scroll={(el) => scrollWithOffset(el)}
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Contact")}
+              </HashLink>
+
+              <Link
+                to="/platform"
+                className="block px-3 py-2 text-white gradient-theme rounded-full mt-4"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Patient Portal")}
+              </Link>
+              <Link
+                to="https://remedyai.com.pl/login"
+                className="block px-3 py-2 text-[#46B7C6] border-2 border-[#46B7C6] rounded-full mt-2"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Professional Portal")}
+              </Link>
             </div>
           </motion.div>
         )}
