@@ -1131,5 +1131,21 @@
   "Play therapy": "Play therapy",
   "Systemic family therapy": "Systemic family therapy",
   "treatmentPage.emotionalBehavioralDisorders.duration": "Individually tailored to needs",
-  "treatmentPage.emotionalBehavioralDisorders.success": "80% of patients achieve significant improvement in functioning"
+  "treatmentPage.emotionalBehavioralDisorders.success": "80% of patients achieve significant improvement in functioning",
+  "childServices.diagnostics.services.intelligenceTest.name": "Intelligence level assessment (DSZ)",
+  "childServices.diagnostics.services.dyslexiaDiagnosis.name": "Dyslexia diagnosis",
+  "childServices.diagnostics.services.emotionalDevelopmentAssessment.name": "Assessment of emotional and developmental difficulties",
+  "childServices.therapy.services.emotionalBehavioralTherapy.name": "Therapy for emotional and behavioral disorders",
+  "childServices.therapy.services.selectiveMutismSupport.name": "Support for selective mutism",
+  "childServices.therapy.services.oppositionalDefiantDisorder.name": "Work with oppositional defiant behaviors",
+  "childServices.therapy.services.anxietyLowSelfEsteemSupport.name": "Support for children with anxiety and low self-esteem",
+  "childServices.therapy.services.depressiveSymptomsWork.name": "Work with children with depressive symptoms",
+  "childServices.communication.services.aac.name": "Alternative and Augmentative Communication (AAC)",
+  "childServices.communication.services.socialDifficultiesTherapy.name": "Therapy supporting children with social difficulties",
+  "childServices.communication.services.autismSpectrumWork.name": "Work with children with autism and autism spectrum",
+  "childServices.psychoeducation.services.sleepHygieneEducation.name": "Sleep hygiene education",
+  "childServices.psychoeducation.services.emotionalDevelopmentWorkshops.name": "Workshops supporting emotional development",
+  "childServices.psychoeducation.services.adaptationDifficultiesSupport.name": "Support for children with adaptation difficulties",
+  "childServices.drugResistant.services.treatmentResistantSupport.name": "Support for treatment-resistant children",
+  "childServices.drugResistant.services.nonPharmacologicalSupport.name": "Help in daily functioning without pharmacotherapy"
 }
