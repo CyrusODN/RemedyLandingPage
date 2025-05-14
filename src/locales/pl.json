@@ -1122,5 +1122,20 @@
   "Regular progress assessment": "Regularna ocena postępów",
   "servicePage.childService.detailsTitle": "Szczegóły usługi:",
   "Benefits": "Korzyści",
-  "servicePage.childYouthTherapy.ctaDescription": "Umów się na pierwszą konsultację, aby rozpocząć proces terapeutyczny."
+  "servicePage.childYouthTherapy.ctaDescription": "Umów się na pierwszą konsultację, aby rozpocząć proces terapeutyczny.",
+  "ADHD: 80% of patients report improvement in functioning": "80% pacjentów notuje poprawę funkcjonowania",
+  "Personality Disorder: 70% of patients achieve significant improvement": "70% pacjentów osiąga znaczącą poprawę",
+  "treatmentPage.emotionalBehavioralDisorders.title": "Leczenie Zaburzeń Emocjonalnych i Zachowania",
+  "treatmentPage.emotionalBehavioralDisorders.description": "Kompleksowe wsparcie terapeutyczne dla dzieci i młodzieży z trudnościami emocjonalnymi i behawioralnymi.",
+  "Difficulties in emotion regulation": "Trudności w regulacji emocji",
+  "Problems in social relationships": "Problemy w relacjach społecznych",
+  "Oppositional defiant behaviors": "Zachowania opozycyjno-buntownicze",
+  "Selective mutism": "Mutyzm wybiórczy",
+  "Anxiety and low self-esteem": "Lęk i niska samoocena",
+  "Depressive symptoms": "Objawy depresyjne",
+  "Adaptation difficulties": "Trudności adaptacyjne",
+  "Play therapy": "Terapia poprzez zabawę",
+  "Systemic family therapy": "Terapia systemowa rodzin",
+  "treatmentPage.emotionalBehavioralDisorders.duration": "Dostosowany indywidualnie do potrzeb",
+  "treatmentPage.emotionalBehavioralDisorders.success": "80% pacjentów osiąga znaczącą poprawę w funkcjonowaniu"
 }
