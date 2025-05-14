@@ -1147,5 +1147,6 @@
   "childServices.psychoeducation.services.emotionalDevelopmentWorkshops.name": "Workshops supporting emotional development",
   "childServices.psychoeducation.services.adaptationDifficultiesSupport.name": "Support for children with adaptation difficulties",
   "childServices.drugResistant.services.treatmentResistantSupport.name": "Support for treatment-resistant children",
-  "childServices.drugResistant.services.nonPharmacologicalSupport.name": "Help in daily functioning without pharmacotherapy"
+  "childServices.drugResistant.services.nonPharmacologicalSupport.name": "Help in daily functioning without pharmacotherapy",
+  "Individual Psychotherapy": "Individual Psychotherapy"
 }
