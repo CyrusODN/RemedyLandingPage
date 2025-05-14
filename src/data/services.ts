@@ -1,233 +1,233 @@
 export const childServices = {
   diagnostics: {
-    title: 'Diagnoza i badania psychologiczne',
+    title: 'Diagnosis and psychological testing', // Klucz i18n
     services: [
       {
-        name: 'Badanie poziomu inteligencji (DSZ)',
-        description: 'Ocena funkcjonowania intelektualnego',
-        duration: '2-3 godziny',
+        name: 'Intelligence level assessment (DSZ)', // Klucz i18n
+        description: 'Assessment of intellectual functioning', // Klucz i18n
+        duration: '2-3 hours', // Użyje istniejącego klucza i18n "2-3 hours"
         price: '800 PLN',
         details: [
-          'Testy inteligencji',
-          'Ocena funkcji poznawczych',
-          'Analiza wyników',
-          'Konsultacja z rodzicami',
-          'Pisemna opinia'
+          'Intelligence tests', // Klucz i18n
+          'Cognitive functions assessment', // Klucz i18n
+          'Results analysis', // Klucz i18n
+          'Consultation with parents', // Klucz i18n
+          'Written opinion', // Klucz i18n
         ]
       },
       {
-        name: 'Diagnoza dysleksji',
-        description: 'Diagnostyka specyficznych trudności w uczeniu się',
-        duration: '2-3 godziny',
+        name: 'Dyslexia diagnosis', // Klucz i18n
+        description: 'Diagnostics of specific learning difficulties', // Klucz i18n
+        duration: '2-3 hours',
         price: '800 PLN',
         details: [
-          'Ocena umiejętności czytania i pisania',
-          'Badanie funkcji poznawczych',
-          'Analiza prac szkolnych',
-          'Konsultacja z rodzicami',
-          'Szczegółowe zalecenia'
+          'Assessment of reading and writing skills', // Klucz i18n
+          'Cognitive functions assessment', // Użycie istniejącego klucza
+          'Analysis of schoolwork', // Klucz i18n
+          'Consultation with parents', // Użycie istniejącego klucza
+          'Detailed recommendations', // Klucz i18n
         ]
       },
       {
-        name: 'Ocena trudności emocjonalnych i rozwojowych',
-        description: 'Kompleksowa ocena funkcjonowania emocjonalnego i rozwojowego',
-        duration: '2-3 godziny',
+        name: 'Assessment of emotional and developmental difficulties', // Klucz i18n
+        description: 'Comprehensive assessment of emotional and developmental functioning', // Klucz i18n
+        duration: '2-3 hours',
         price: '800 PLN',
         details: [
-          'Wywiad z rodzicami',
-          'Obserwacja zachowania',
-          'Testy psychologiczne',
-          'Plan wsparcia',
-          'Zalecenia dla rodziców i szkoły'
+          'Interview with parents', // Klucz i18n
+          'Behavioral observation', // Klucz i18n
+          'Psychological tests', // Istnieje
+          'Support plan', // Klucz i18n
+          'Recommendations for parents and school', // Klucz i18n
         ]
       }
     ]
   },
   therapy: {
-    title: 'Wsparcie dla dzieci z trudnościami w zachowaniu i emocjach',
+    title: 'Support for children with behavioral and emotional difficulties', // Klucz i18n
     services: [
       {
-        name: 'Terapia zaburzeń emocjonalnych i zachowania',
-        description: 'Indywidualna terapia dostosowana do potrzeb dziecka',
-        duration: '50 minut',
+        name: 'Therapy for emotional and behavioral disorders', // Klucz i18n
+        description: 'Individual therapy tailored to the child\'s needs', // Klucz i18n
+        duration: '50 minutes', // Istnieje
         price: '250 PLN',
         details: [
-          'Regularne sesje terapeutyczne',
-          'Techniki radzenia sobie z emocjami',
-          'Modyfikacja zachowań',
-          'Współpraca z rodzicami',
-          'Monitoring postępów'
+          'Regular therapeutic sessions', // Istnieje
+          'Coping techniques for emotions', // Klucz i18n
+          'Behavior modification', // Klucz i18n
+          'Cooperation with parents', // Klucz i18n
+          'Progress monitoring', // Istnieje
         ]
       },
       {
-        name: 'Wsparcie w przypadku mutyzmu wybiórczego',
-        description: 'Specjalistyczna terapia dla dzieci z mutyzmem wybiórczym',
-        duration: '50 minut',
+        name: 'Support for selective mutism', // Klucz i18n
+        description: 'Specialized therapy for children with selective mutism', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Terapia behawioralna',
-          'Techniki ekspozycji',
-          'Współpraca ze szkołą',
-          'Wsparcie dla rodziców',
-          'Plan interwencji'
+          'Behavioral therapy', // Istnieje
+          'Exposure techniques', // Klucz i18n
+          'Cooperation with school', // Klucz i18n
+          'Support for parents', // Istnieje
+          'Intervention plan', // Klucz i18n
         ]
       },
       {
-        name: 'Praca z zachowaniami opozycyjno-buntowniczymi',
-        description: 'Terapia ukierunkowana na trudności w zachowaniu',
-        duration: '50 minut',
+        name: 'Work with oppositional defiant behaviors', // Klucz i18n
+        description: 'Therapy focused on behavioral difficulties', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Analiza zachowań',
-          'Strategie behawioralne',
-          'Trening umiejętności społecznych',
-          'Wsparcie rodzicielskie',
-          'Plan modyfikacji zachowań'
+          'Behavior analysis', // Klucz i18n
+          'Behavioral strategies', // Klucz i18n
+          'Social skills training', // Istnieje
+          'Parental support', // Klucz i18n
+          'Behavior modification plan', // Klucz i18n
         ]
       },
       {
-        name: 'Wsparcie dzieci z lękiem i niską samooceną',
-        description: 'Terapia wspierająca rozwój emocjonalny i budowanie pewności siebie',
-        duration: '50 minut',
+        name: 'Support for children with anxiety and low self-esteem', // Klucz i18n
+        description: 'Therapy supporting emotional development and building self-confidence', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Techniki relaksacyjne',
-          'Budowanie pewności siebie',
-          'Praca z przekonaniami',
-          'Strategie radzenia sobie',
-          'Wsparcie rodziców'
+          'Relaxation techniques', // Istnieje
+          'Building self-confidence', // Klucz i18n
+          'Working with beliefs', // Klucz i18n
+          'Coping strategies', // Istnieje
+          'Support for parents', // Istnieje
         ]
       },
       {
-        name: 'Praca z dziećmi z objawami depresyjnymi',
-        description: 'Terapia dostosowana do potrzeb dzieci z objawami depresji',
-        duration: '50 minut',
+        name: 'Work with children with depressive symptoms', // Klucz i18n
+        description: 'Therapy tailored to the needs of children with depressive symptoms', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Terapia poznawczo-behawioralna',
-          'Aktywizacja behawioralna',
-          'Techniki mindfulness',
-          'Wsparcie rodzinne',
-          'Monitoring nastroju'
+          'Cognitive-Behavioral Therapy (CBT)', // Istnieje
+          'Behavioral activation', // Klucz i18n
+          'Mindfulness techniques', // Klucz i18n
+          'Family support', // Istnieje
+          'Mood monitoring', // Istnieje
         ]
       }
     ]
   },
   communication: {
-    title: 'Komunikacja i funkcjonowanie społeczne',
+    title: 'Communication and social functioning', // Klucz i18n
     services: [
       {
-        name: 'Alternatywne metody komunikacji (AAC)',
-        description: 'Wsparcie w rozwijaniu umiejętności komunikacyjnych',
-        duration: '50 minut',
+        name: 'Alternative and Augmentative Communication (AAC)', // Klucz i18n
+        description: 'Support in developing communication skills', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Dobór metod AAC',
-          'Trening komunikacji',
-          'Wsparcie technologiczne',
-          'Edukacja rodziców',
-          'Współpraca z otoczeniem'
+          'Selection of AAC methods', // Klucz i18n
+          'Communication training', // Klucz i18n
+          'Technological support', // Klucz i18n
+          'Parent education', // Klucz i18n
+          'Collaboration with the environment', // Klucz i18n
         ]
       },
       {
-        name: 'Terapia wspomagająca dzieci z trudnościami w relacjach społecznych',
-        description: 'Rozwijanie umiejętności społecznych i budowanie relacji',
-        duration: '50 minut',
+        name: 'Therapy supporting children with social difficulties', // Klucz i18n
+        description: 'Developing social skills and building relationships', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Trening umiejętności społecznych',
-          'Rozumienie emocji',
-          'Budowanie relacji',
-          'Scenariusze społeczne',
-          'Praktyczne ćwiczenia'
+          'Social skills training', // Istnieje
+          'Understanding emotions', // Klucz i18n
+          'Building relationships', // Istnieje
+          'Social scenarios', // Klucz i18n
+          'Practical exercises', // Klucz i18n
         ]
       },
       {
-        name: 'Praca z dziećmi z autyzmem i spektrum autyzmu',
-        description: 'Specjalistyczna terapia dla dzieci ze spektrum autyzmu',
-        duration: '50 minut',
+        name: 'Work with children with autism and autism spectrum', // Klucz i18n
+        description: 'Specialized therapy for children with autism spectrum', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Terapia behawioralna',
-          'Rozwijanie komunikacji',
-          'Trening społeczny',
-          'Integracja sensoryczna',
-          'Wsparcie rodziny'
+          'Behavioral therapy', // Istnieje
+          'Developing communication', // Klucz i18n
+          'Social training', // Klucz i18n
+          'Sensory integration', // Klucz i18n
+          'Family support', // Istnieje
         ]
       }
     ]
   },
   psychoeducation: {
-    title: 'Psychoedukacja i higiena funkcjonowania',
+    title: 'Psychoeducation and functional hygiene', // Klucz i18n
     services: [
       {
-        name: 'Nauka higieny snu',
-        description: 'Wsparcie w rozwijaniu prawidłowych nawyków snu',
-        duration: '50 minut',
+        name: 'Sleep hygiene education', // Klucz i18n
+        description: 'Support in developing healthy sleep habits', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Analiza wzorców snu',
-          'Techniki relaksacyjne',
-          'Higiena snu',
-          'Plan interwencji',
-          'Monitoring postępów'
+          'Analysis of sleep patterns', // Klucz i18n
+          'Relaxation techniques', // Istnieje
+          'Sleep hygiene', // Istnieje
+          'Intervention plan', // Użycie istniejącego klucza
+          'Progress monitoring', // Istnieje
         ]
       },
       {
-        name: 'Warsztaty wspierające rozwój emocjonalny',
-        description: 'Grupowe zajęcia rozwijające kompetencje emocjonalne',
-        duration: '90 minut',
+        name: 'Workshops supporting emotional development', // Klucz i18n
+        description: 'Group activities developing emotional competencies', // Klucz i18n
+        duration: '90 minutes', // Nowy klucz dla "90 minutes"
         price: '150 PLN',
         details: [
-          'Rozpoznawanie emocji',
-          'Techniki regulacji',
-          'Praca w grupie',
-          'Ćwiczenia praktyczne',
-          'Materiały edukacyjne'
+          'Recognizing emotions', // Klucz i18n
+          'Regulation techniques', // Klucz i18n
+          'Group work', // Klucz i18n
+          'Practical exercises', // Użycie istniejącego klucza
+          'Educational materials', // Klucz i18n
         ]
       },
       {
-        name: 'Wsparcie dzieci z trudnościami w adaptacji',
-        description: 'Pomoc w przystosowaniu się do nowych sytuacji',
-        duration: '50 minut',
+        name: 'Support for children with adaptation difficulties', // Klucz i18n
+        description: 'Help in adapting to new situations', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Strategie adaptacyjne',
-          'Budowanie odporności',
-          'Techniki radzenia sobie',
-          'Wsparcie w zmianach',
-          'Plan działania'
+          'Adaptive strategies', // Klucz i18n
+          'Building resilience', // Klucz i18n
+          'Coping techniques', // Klucz i18n (może być inny niż ogólny "Coping strategies")
+          'Support in changes', // Klucz i18n
+          'Action plan', // Klucz i18n
         ]
       }
     ]
   },
   drugResistant: {
-    title: 'Dla dzieci opornych na leczenie farmakologiczne',
+    title: 'For children resistant to pharmacological treatment', // Klucz i18n
     services: [
       {
-        name: 'Wsparcie w funkcjonowaniu dzieci lekoopornych',
-        description: 'Kompleksowa pomoc dla dzieci z opornością na leczenie',
-        duration: '50 minut',
+        name: 'Support for treatment-resistant children', // Klucz i18n
+        description: 'Comprehensive help for children with treatment resistance', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Analiza dotychczasowego leczenia',
-          'Alternatywne metody terapii',
-          'Wsparcie psychologiczne',
-          'Współpraca z psychiatrą',
-          'Plan kompleksowej pomocy'
+          'Analysis of previous treatment', // Klucz i18n
+          'Alternative therapy methods', // Klucz i18n
+          'Psychological support', // Istnieje
+          'Cooperation with a psychiatrist', // Klucz i18n
+          'Comprehensive help plan', // Klucz i18n
         ]
       },
       {
-        name: 'Pomoc w codziennym funkcjonowaniu bez udziału farmakoterapii',
-        description: 'Alternatywne metody wsparcia i terapii',
-        duration: '50 minut',
+        name: 'Help in daily functioning without pharmacotherapy', // Klucz i18n
+        description: 'Alternative methods of support and therapy', // Klucz i18n
+        duration: '50 minutes',
         price: '250 PLN',
         details: [
-          'Techniki behawioralne',
-          'Metody naturalne',
-          'Wsparcie środowiskowe',
-          'Modyfikacje stylu życia',
-          'Plan wsparcia'
+          'Behavioral techniques', // Istnieje
+          'Natural methods', // Klucz i18n
+          'Environmental support', // Klucz i18n
+          'Lifestyle modifications', // Klucz i18n
+          'Support plan', // Użycie istniejącego klucza
         ]
       }
     ]
