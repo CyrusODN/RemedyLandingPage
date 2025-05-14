@@ -1137,5 +1137,21 @@
   "Play therapy": "Terapia poprzez zabawę",
   "Systemic family therapy": "Terapia systemowa rodzin",
   "treatmentPage.emotionalBehavioralDisorders.duration": "Dostosowany indywidualnie do potrzeb",
-  "treatmentPage.emotionalBehavioralDisorders.success": "80% pacjentów osiąga znaczącą poprawę w funkcjonowaniu"
+  "treatmentPage.emotionalBehavioralDisorders.success": "80% pacjentów osiąga znaczącą poprawę w funkcjonowaniu",
+  "childServices.diagnostics.services.intelligenceTest.name": "Badanie poziomu inteligencji (DSZ)",
+  "childServices.diagnostics.services.dyslexiaDiagnosis.name": "Diagnoza dysleksji",
+  "childServices.diagnostics.services.emotionalDevelopmentAssessment.name": "Ocena trudności emocjonalnych i rozwojowych",
+  "childServices.therapy.services.emotionalBehavioralTherapy.name": "Terapia zaburzeń emocjonalnych i zachowania",
+  "childServices.therapy.services.selectiveMutismSupport.name": "Wsparcie w przypadku mutyzmu wybiórczego",
+  "childServices.therapy.services.oppositionalDefiantDisorder.name": "Praca z zachowaniami opozycyjno-buntowniczymi",
+  "childServices.therapy.services.anxietyLowSelfEsteemSupport.name": "Wsparcie dzieci z lękiem i niską samooceną",
+  "childServices.therapy.services.depressiveSymptomsWork.name": "Praca z dziećmi z objawami depresyjnymi",
+  "childServices.communication.services.aac.name": "Alternatywne metody komunikacji (AAC)",
+  "childServices.communication.services.socialDifficultiesTherapy.name": "Terapia wspomagająca dzieci z trudnościami w relacjach społecznych",
+  "childServices.communication.services.autismSpectrumWork.name": "Praca z dziećmi z autyzmem i spektrum autyzmu",
+  "childServices.psychoeducation.services.sleepHygieneEducation.name": "Nauka higieny snu",
+  "childServices.psychoeducation.services.emotionalDevelopmentWorkshops.name": "Warsztaty wspierające rozwój emocjonalny",
+  "childServices.psychoeducation.services.adaptationDifficultiesSupport.name": "Wsparcie dzieci z trudnościami w adaptacji",
+  "childServices.drugResistant.services.treatmentResistantSupport.name": "Wsparcie w funkcjonowaniu dzieci lekoopornych",
+  "childServices.drugResistant.services.nonPharmacologicalSupport.name": "Pomoc w codziennym funkcjonowaniu bez udziału farmakoterapii"
 }
