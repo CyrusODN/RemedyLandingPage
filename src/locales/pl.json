@@ -1154,5 +1154,9 @@
   "childServices.psychoeducation.services.adaptationDifficultiesSupport.name": "Wsparcie dzieci z trudnościami w adaptacji",
   "childServices.drugResistant.services.treatmentResistantSupport.name": "Wsparcie w funkcjonowaniu dzieci lekoopornych",
   "childServices.drugResistant.services.nonPharmacologicalSupport.name": "Pomoc w codziennym funkcjonowaniu bez udziału farmakoterapii",
-  "Individual Psychotherapy": "Psychoterapia Indywidualna"
+  "Individual Psychotherapy": "Psychoterapia Indywidualna",
+  "Psychiatric Consultations": "Konsultacje Psychiatryczne",
+  "Neurodevelopmental Diagnostics": "Diagnostyka Zaburzeń Neurorozwojowych",
+  "Psychological Diagnostics and Support": "Diagnostyka i Wsparcie Psychologiczne",
+  "Patient Information": "Informacje dla Pacjentów"
 }
