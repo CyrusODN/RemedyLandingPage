@@ -8,30 +8,31 @@ import Language from "./Language";
 
 // Definicje typów dla elementów nawigacji
 interface NavLinkItem {
-  name: string;
+  name: string; // Bezpośrednia angielska fraza (klucz i18n)
   path: string;
   type?: 'link';
 }
 
 interface NavCategory {
-  category: string;
+  category: string; // Bezpośrednia angielska fraza (klucz i18n)
   items: NavLinkItem[];
 }
 
 interface NavDropdownConfig {
   type: 'dropdown';
-  title: string;
+  title: string; // Bezpośrednia angielska fraza (klucz i18n)
   items: (NavLinkItem | NavCategory)[];
 }
 
 interface NavDirectLinkConfig {
   type: 'link';
-  name: string;
+  name: string; // Bezpośrednia angielska fraza (klucz i18n)
   path: string;
 }
 
 type NavigationItem = NavDropdownConfig | NavDirectLinkConfig;
 
+// ZAKTUALIZOWANA STRUKTURA DANYCH NAWIGACJI
 const navigationItems: NavigationItem[] = [
   {
     type: 'link',
@@ -43,7 +44,7 @@ const navigationItems: NavigationItem[] = [
     title: 'Offer',
     items: [
       {
-        category: 'Psychiatric Consultations',
+        category: 'Psychiatric Consultations', // Klucz do i18n
         items: [
           { name: 'Psychiatric Consultation', path: '/services/konsultacja' },
           { name: 'Psychiatric Consultation for Children and Adolescents', path: '/services/konsultacja-dzieci' }
@@ -56,7 +57,7 @@ const navigationItems: NavigationItem[] = [
         ]
       },
       {
-        category: 'Neurodevelopmental Diagnostics',
+        category: 'Neurodevelopmental Diagnostics', // Klucz do i18n
         items: [
           { name: 'adhdDiagnosticsPage.title', path: '/patient-info/adhd-diagnostics' },
           { name: 'autismDiagnosticsPage.title', path: '/patient-info/autism-diagnostics' }
@@ -69,7 +70,7 @@ const navigationItems: NavigationItem[] = [
         ]
       },
       {
-        category: 'Psychological Diagnostics and Support',
+        category: 'Psychological Diagnostics and Support', // Klucz do i18n
         items: [
           { name: 'cognitiveAssessmentPage.title', path: '/patient-info/cognitive-assessment' },
           { name: 'childServices.diagnostics.services.intelligenceTest.name', path: '/services/terapia-dzieci-mlodziez#diagnostics' },
@@ -90,12 +91,13 @@ const navigationItems: NavigationItem[] = [
           { name: 'childServices.drugResistant.services.nonPharmacologicalSupport.name', path: '/services/terapia-dzieci-mlodziez#drugResistant' }
         ]
       },
+      // Usunięto: Group Therapy i Clinical Trials - Preliminary Qualification
     ]
   },
   {
     type: 'dropdown',
     title: 'Scope of Treatment',
-    items: [
+    items: [ // Pozostaje płaską listą lub można dodać kategorie jak w "Offer"
       { name: 'Depression', path: '/treatment/depresja' },
       { name: 'Anxiety Disorders', path: '/treatment/zaburzenia-lekowe' },
       { name: 'Schizophrenia', path: '/treatment/schizofrenia' },
@@ -109,7 +111,7 @@ const navigationItems: NavigationItem[] = [
   },
   {
     type: 'dropdown',
-    title: 'Patient Information',
+    title: 'Patient Information', // Klucz i18n
     items: [
       { name: 'psychiatricExamPrepPage.title', path: '/patient-info/psychiatric-exam-prep' },
       { name: 'firstVisitPage.title', path: '/patient-info/first-visit' },
@@ -269,10 +271,10 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation - Center and Right */}
-          {/* Ten div będzie rozciągnięty pomiędzy Logo a przyciskiem mobilnego menu */}
-          <div className="hidden lg:flex flex-1 items-center justify-between ml-6"> {/* Dodano ml-6 dla odstępu od logo */}
-            {/* Główne linki nawigacyjne */}
-            <div className="flex items-center space-x-3 xl:space-x-4">
+          {/* Container for main links and right-side buttons to enable justify-between */}
+          <div className="hidden lg:flex flex-grow items-center justify-end"> {/* Changed to justify-end */}
+            {/* Main Navigation Links - will be pushed towards center/left by the right group */}
+            <div className="flex items-center space-x-3 xl:space-x-4"> {/* Adjusted spacing */}
               {navigationItems.map((navItem, index) => {
                 if (navItem.type === 'link') {
                   return (
@@ -304,8 +306,8 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Język i Przyciski Portali */}
-            <div className="flex items-center space-x-3 xl:space-x-4">
+            {/* Language and Portal Buttons - pushed to the right */}
+            <div className="flex items-center space-x-3 xl:space-x-4 ml-6"> {/* Added ml-6 for spacing */}
               <Language />
               <Link
                 to="/platform"
@@ -326,12 +328,13 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Przycisk menu mobilnego i język (tylko mobilne) */}
-          <div className="flex items-center lg:hidden">
+
+          {/* Mobile Menu Button & Language Toggle */}
+          <div className="flex gap-4 items-center lg:hidden">
             <Language />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="ml-3 rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors p-1"
+              className="rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors p-1"
               aria-label={t("Toggle menu")}
             >
               {isOpen ? (
@@ -344,7 +347,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobilne Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
