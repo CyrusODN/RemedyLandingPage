@@ -1,26 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"; // Importing useTranslation
 import Language from "./Language";
 
-// Definicje typów dla elementów nawigacji
-interface NavLinkItem {
-  name: string; // Klucz i18n
-  path: string;
-}
-
-interface NavCategoryItem {
-  category: string; // Klucz i18n dla nazwy kategorii
-  items: NavLinkItem[];
-}
-
-type NavDropdownItem = NavLinkItem | NavCategoryItem;
-
-// Dane menu z potencjalnymi kategoriami
-const offerItems: NavDropdownItem[] = [
+const offerItems = [
   { name: "Psychiatric Consultation", path: "/services/konsultacja" },
   {
     name: "Psychiatric Consultation for Children and Adolescents",
@@ -29,63 +15,18 @@ const offerItems: NavDropdownItem[] = [
   { name: "Psychotherapy", path: "/services/psychoterapia" },
   { name: "Group Therapy", path: "/services/terapia-grupowa" },
   { name: "Personality Diagnostics", path: "/services/diagnostyka" },
-  // Można dodać więcej lub przekształcić w kategorie, np.:
-  // {
-  //   category: "navbar.offer.category.consultations",
-  //   items: [
-  //     { name: "Psychiatric Consultation", path: "/services/konsultacja" },
-  //     { name: "Psychiatric Consultation for Children and Adolescents", path: "/services/konsultacja-dzieci"},
-  //   ]
-  // },
-  // {
-  //   category: "navbar.offer.category.therapies",
-  //   items: [
-  //     { name: "Psychotherapy", path: "/services/psychoterapia" },
-  //     { name: "Group Therapy", path: "/services/terapia-grupowa" },
-  //   ]
-  // }
 ];
 
-const treatmentItems: NavDropdownItem[] = [
-  // Przykład z kategoriami
-  {
-    category: "navbar.treatment.category.moodDisorders",
-    items: [
-      { name: "Depression", path: "/treatment/depresja" },
-      { name: "Bipolar Disorder (BPD)", path: "/treatment/chad" },
-    ],
-  },
-  {
-    category: "navbar.treatment.category.anxietyAndTrauma",
-    items: [
-      { name: "Anxiety Disorders", path: "/treatment/zaburzenia-lekowe" },
-      { name: "PTSD", path: "/treatment/ptsd" },
-    ],
-  },
-  {
-    category: "navbar.treatment.category.other",
-    items: [
-      { name: "Schizophrenia", path: "/treatment/schizofrenia" },
-      { name: "ADHD", path: "/treatment/adhd" },
-      { name: "Personality Disorders", path: "/treatment/zaburzenia-osobowosci" },
-      { name: "Sleep Disorders", path: "/treatment/zaburzenia-snu" },
-    ],
-  },
+const treatmentItems = [
+  { name: "Depression", path: "/treatment/depresja" },
+  { name: "Anxiety Disorders", path: "/treatment/zaburzenia-lekowe" },
+  { name: "Schizophrenia", path: "/treatment/schizofrenia" },
+  { name: "Bipolar Disorder (BPD)", path: "/treatment/chad" },
+  { name: "ADHD", path: "/treatment/adhd" },
+  { name: "PTSD", path: "/treatment/ptsd" },
+  { name: "Personality Disorders", path: "/treatment/zaburzenia-osobowosci" },
+  { name: "Sleep Disorders", path: "/treatment/zaburzenia-snu" },
 ];
-
-const patientInfoItems: NavLinkItem[] = [ // Na razie płaska lista, można dodać kategorie
-    { name: "firstVisitPage.title", path: "/patient-info/first-visit" },
-    { name: "psychiatricExamPrepPage.title", path: "/patient-info/psychiatric-exam-prep" },
-    { name: "psychotherapyPage.title", path: "/patient-info/psychotherapy" },
-    { name: "parentInfoPage.title", path: "/patient-info/parent-info" },
-    { name: "adhdDiagnosticsPage.title", path: "/patient-info/adhd-diagnostics" },
-    { name: "adhdPrepPage.title", path: "/patient-info/adhd-prep" },
-    { name: "autismDiagnosticsPage.title", path: "/patient-info/autism-diagnostics" },
-    { name: "mmpi2DiagnosticsPage.title", path: "/patient-info/mmpi2-diagnostics" },
-    { name: "cognitiveAssessmentPage.title", path: "/patient-info/cognitive-assessment" },
-    { name: "faqPage.title", path: "/patient-info/faq" },
-];
-
 
 const Logo = () => (
   <svg
@@ -122,23 +63,20 @@ const scrollWithOffset = (el: HTMLElement) => {
   window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
 };
 
-// Zmodyfikowany NavDropdown do obsługi kategorii
 const NavDropdown = ({
   title,
   items,
   isActive,
   onMouseEnter,
   onMouseLeave,
-  setIsOpen,
 }: {
   title: string;
-  items: NavDropdownItem[]; // Użycie nowego typu
+  items: { name: string; path: string }[];
   isActive: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-  setIsOpen?: (isOpen: boolean) => void;
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Initialize translation
 
   return (
     <div
@@ -147,7 +85,7 @@ const NavDropdown = ({
       onMouseLeave={onMouseLeave}
     >
       <button className="text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-sm md:text-base font-medium flex items-center gap-1">
-        {t(title)}
+        {t(title)} {/* Wrap with t() */}
         <ChevronDown className="h-4 w-4" />
       </button>
       <AnimatePresence>
@@ -157,41 +95,17 @@ const NavDropdown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 mt-1 w-72 bg-white rounded-lg shadow-lg py-2 z-50 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar" // Zwiększono szerokość i max-height
+            className="absolute left-0 mt-1 w-64 bg-white rounded-lg shadow-lg py-2 z-50"
           >
-            {items.map((item, index) => {
-              // Sprawdzenie, czy element jest kategorią
-              if ('category' in item) {
-                return (
-                  <div key={`category-${index}`} className="px-4 pt-3 pb-1">
-                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-                      {t(item.category)}
-                    </h3>
-                    {item.items.map((subItem, subIndex) => (
-                      <Link
-                        key={`subitem-${index}-${subIndex}`}
-                        to={subItem.path}
-                        className="block px-2 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm rounded-md"
-                        onClick={() => setIsOpen && setIsOpen(false)}
-                      >
-                        {t(subItem.name)}
-                      </Link>
-                    ))}
-                  </div>
-                );
-              }
-              // Renderowanie pojedynczego linku
-              return (
-                <Link
-                  key={`item-${index}`}
-                  to={item.path}
-                  className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm"
-                  onClick={() => setIsOpen && setIsOpen(false)}
-                >
-                  {t(item.name)}
-                </Link>
-              );
-            })}
+            {items.map((item, index) => (
+              <Link
+                key={index}
+                to={item.path}
+                className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm"
+              >
+                {t(item.name)}
+              </Link>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
@@ -200,7 +114,7 @@ const NavDropdown = ({
 };
 
 export default function Navbar() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Initialize translation
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const timeoutRef = useRef<any>();
@@ -229,46 +143,37 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
-            <HashLink smooth to="/#hero" scroll={(el) => scrollWithOffset(el)}>
+            <HashLink smooth to="/#hero">
               <Logo />
             </HashLink>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6">
             <HashLink
               smooth
               to="/#about"
-              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("About Us")}
             </HashLink>
             <NavDropdown
-              title={"Offer"}
+              title={t("Offer")}
               items={offerItems}
               isActive={activeDropdown === "offer"}
               onMouseEnter={() => handleDropdownEnter("offer")}
               onMouseLeave={handleDropdownLeave}
             />
             <NavDropdown
-              title={"Scope of Treatment"}
+              title={t("Scope of Treatment")}
               items={treatmentItems}
               isActive={activeDropdown === "treatment"}
               onMouseEnter={() => handleDropdownEnter("treatment")}
               onMouseLeave={handleDropdownLeave}
             />
-            <NavDropdown
-              title={"navbar.patientInformation"}
-              items={patientInfoItems}
-              isActive={activeDropdown === "patientInfo"}
-              onMouseEnter={() => handleDropdownEnter("patientInfo")}
-              onMouseLeave={handleDropdownLeave}
-            />
+
             <HashLink
               smooth
               to="/#pricing"
-              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Pricing")}
@@ -276,7 +181,6 @@ export default function Navbar() {
             <HashLink
               smooth
               to="/#locations"
-              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Locations")}
@@ -284,7 +188,6 @@ export default function Navbar() {
             <HashLink
               smooth
               to="/#join-us"
-              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Career")}
@@ -292,7 +195,6 @@ export default function Navbar() {
             <HashLink
               smooth
               to="/#contact"
-              scroll={(el) => scrollWithOffset(el)}
               className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium"
             >
               {t("Contact")}
@@ -301,29 +203,25 @@ export default function Navbar() {
             <Link
               to="/platform"
               className="gradient-theme text-white px-4 py-2 rounded-full
-                         hover:shadow-lg transition-all duration-300 font-medium text-sm"
+                hover:shadow-lg transition-all duration-300 font-medium text-sm"
             >
               {t("Patient Portal")}
             </Link>
             <Link
               to="https://remedyai.com.pl/login"
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-white text-[#46B7C6] border-2 border-[#46B7C6] px-4 py-2 rounded-full
-                         hover:shadow-lg transition-all duration-300 font-medium text-sm"
+                hover:shadow-lg transition-all duration-300 font-medium text-sm"
             >
               {t("Professional Portal")}
             </Link>
           </div>
-
-          {/* Mobile Menu Button & Language Toggle */}
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 justify-center">
             <div className="block lg:hidden">
               <Language />
             </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors p-1"
+              className="lg:hidden rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors"
               aria-label={t("Toggle menu")}
             >
               {isOpen ? (
@@ -336,7 +234,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -346,150 +243,94 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="lg:hidden overflow-hidden bg-white shadow-lg"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto custom-scrollbar">
+            <div className="px-4 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
               <HashLink
                 smooth
                 to="/#about"
                 scroll={(el) => scrollWithOffset(el)}
-                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors rounded-md"
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {t("About Us")}
               </HashLink>
-
-              {/* Offer Items - Mobile with Categories */}
-              <div className="px-3 py-2 text-gray-700 font-semibold">{t("Offer")}:</div>
-              {offerItems.map((item, index) => {
-                if ('category' in item) {
-                  return (
-                    <div key={`mobile-offer-cat-${index}`} className="pl-3">
-                      <div className="px-3 py-1 text-sm text-gray-500 font-medium">{t(item.category)}</div>
-                      {item.items.map((subItem, subIndex) => (
-                        <Link
-                          key={`mobile-offer-sub-${index}-${subIndex}`}
-                          to={subItem.path}
-                          className="block py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6 rounded-md"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {t(subItem.name)}
-                        </Link>
-                      ))}
-                    </div>
-                  );
-                }
-                return (
-                  <Link
-                    key={`mobile-offer-${index}`}
-                    to={item.path}
-                    className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6 rounded-md"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {t(item.name)}
-                  </Link>
-                );
-              })}
-
-              {/* Treatment Items - Mobile with Categories */}
-              <div className="px-3 py-2 text-gray-700 font-semibold mt-1">{t("Scope of Treatment")}:</div>
-              {treatmentItems.map((item, index) => {
-                if ('category' in item) {
-                  return (
-                    <div key={`mobile-treatment-cat-${index}`} className="pl-3">
-                      <div className="px-3 py-1 text-sm text-gray-500 font-medium">{t(item.category)}</div>
-                      {item.items.map((subItem, subIndex) => (
-                        <Link
-                          key={`mobile-treatment-sub-${index}-${subIndex}`}
-                          to={subItem.path}
-                          className="block py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6 rounded-md"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {t(subItem.name)}
-                        </Link>
-                      ))}
-                    </div>
-                  );
-                }
-                // This case should ideally not happen if all treatmentItems are categories, but as a fallback:
-                return (
-                  <Link
-                    key={`mobile-treatment-${index}`}
-                    to={item.path}
-                    className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6 rounded-md"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {t(item.name)}
-                  </Link>
-                );
-              })}
-              
-              {/* Patient Info Items - Mobile (flat list) */}
-              <div className="px-3 py-2 text-gray-700 font-semibold mt-1">{t("navbar.patientInformation")}:</div>
-              {patientInfoItems.map((item, index) => (
+              <div className="px-3 py-2 text-gray-600 font-medium">
+                {t("Offer")}:
+              </div>
+              {offerItems.map((item, index) => (
                 <Link
-                  key={`patient-info-mobile-${index}`}
+                  key={`offer-${index}`}
                   to={item.path}
-                  className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6 rounded-md"
+                  className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6"
                   onClick={() => setIsOpen(false)}
                 >
                   {t(item.name)}
                 </Link>
               ))}
-
+              <div className="px-3 py-2 text-gray-600 font-medium">
+                {t("Scope of Treatment")}:
+              </div>
+              {treatmentItems.map((item, index) => (
+                <Link
+                  key={`treatment-${index}`}
+                  to={item.path}
+                  className="block px-3 py-2 text-gray-600 hover:text-[#46B7C6] transition-colors pl-6"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t(item.name)}
+                </Link>
+              ))}
               <HashLink
                 smooth
                 to="/#pricing"
                 scroll={(el) => scrollWithOffset(el)}
-                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors rounded-md"
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {t("Pricing")}
               </HashLink>
-              <HashLink
-                smooth
-                to="/#locations"
-                scroll={(el) => scrollWithOffset(el)}
-                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors rounded-md"
-                onClick={() => setIsOpen(false)}
-              >
-                {t("Locations")}
-              </HashLink>
+
               <HashLink
                 smooth
                 to="/#join-us"
                 scroll={(el) => scrollWithOffset(el)}
-                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors rounded-md"
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {t("Career")}
               </HashLink>
               <HashLink
                 smooth
+                to="/#locations"
+                scroll={(el) => scrollWithOffset(el)}
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Locations")}
+              </HashLink>
+              <HashLink
+                smooth
                 to="/#contact"
                 scroll={(el) => scrollWithOffset(el)}
-                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors rounded-md"
+                className="block px-3 py-2 text-gray-700 hover:text-[#46B7C6] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {t("Contact")}
               </HashLink>
 
-              <div className="pt-2 space-y-2 px-3">
-                <Link
-                  to="/platform"
-                  className="block text-center py-2 text-white gradient-theme rounded-full"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("Patient Portal")}
-                </Link>
-                <Link
-                  to="https://remedyai.com.pl/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center py-2 text-[#46B7C6] border-2 border-[#46B7C6] rounded-full"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("Professional Portal")}
-                </Link>
-              </div>
+              <Link
+                to="/platform"
+                className="block px-3 py-2 text-white gradient-theme rounded-full mt-4"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Patient Portal")}
+              </Link>
+              <Link
+                to="https://remedyai.com.pl/login"
+                className="block px-3 py-2 text-[#46B7C6] border-2 border-[#46B7C6] rounded-full mt-2"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("Professional Portal")}
+              </Link>
             </div>
           </motion.div>
         )}
