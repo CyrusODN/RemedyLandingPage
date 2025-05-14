@@ -4,34 +4,35 @@ import { HashLink } from "react-router-hash-link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import Language from "./Language"; // Upewnij się, że ta ścieżka jest poprawna
+import Language from "./Language";
 
 // Definicje typów dla elementów nawigacji
 interface NavLinkItem {
-  name: string;
+  name: string; // Bezpośrednia angielska fraza (klucz i18n)
   path: string;
   type?: 'link';
 }
 
 interface NavCategory {
-  category: string;
+  category: string; // Bezpośrednia angielska fraza (klucz i18n)
   items: NavLinkItem[];
 }
 
 interface NavDropdownConfig {
   type: 'dropdown';
-  title: string;
+  title: string; // Bezpośrednia angielska fraza (klucz i18n)
   items: (NavLinkItem | NavCategory)[];
 }
 
 interface NavDirectLinkConfig {
   type: 'link';
-  name: string;
+  name: string; // Bezpośrednia angielska fraza (klucz i18n)
   path: string;
 }
 
 type NavigationItem = NavDropdownConfig | NavDirectLinkConfig;
 
+// ZAKTUALIZOWANA STRUKTURA DANYCH NAWIGACJI
 const navigationItems: NavigationItem[] = [
   {
     type: 'link',
@@ -43,7 +44,7 @@ const navigationItems: NavigationItem[] = [
     title: 'Offer',
     items: [
       {
-        category: 'Psychiatric Consultations',
+        category: 'Psychiatric Consultations', // Klucz do i18n
         items: [
           { name: 'Psychiatric Consultation', path: '/services/konsultacja' },
           { name: 'Psychiatric Consultation for Children and Adolescents', path: '/services/konsultacja-dzieci' }
@@ -56,7 +57,7 @@ const navigationItems: NavigationItem[] = [
         ]
       },
       {
-        category: 'Neurodevelopmental Diagnostics',
+        category: 'Neurodevelopmental Diagnostics', // Klucz do i18n
         items: [
           { name: 'adhdDiagnosticsPage.title', path: '/patient-info/adhd-diagnostics' },
           { name: 'autismDiagnosticsPage.title', path: '/patient-info/autism-diagnostics' }
@@ -69,7 +70,7 @@ const navigationItems: NavigationItem[] = [
         ]
       },
       {
-        category: 'Psychological Diagnostics and Support',
+        category: 'Psychological Diagnostics and Support', // Klucz do i18n
         items: [
           { name: 'cognitiveAssessmentPage.title', path: '/patient-info/cognitive-assessment' },
           { name: 'childServices.diagnostics.services.intelligenceTest.name', path: '/services/terapia-dzieci-mlodziez#diagnostics' },
@@ -90,12 +91,13 @@ const navigationItems: NavigationItem[] = [
           { name: 'childServices.drugResistant.services.nonPharmacologicalSupport.name', path: '/services/terapia-dzieci-mlodziez#drugResistant' }
         ]
       },
+      // Usunięto: Group Therapy i Clinical Trials - Preliminary Qualification
     ]
   },
   {
     type: 'dropdown',
     title: 'Scope of Treatment',
-    items: [
+    items: [ // Pozostaje płaską listą lub można dodać kategorie jak w "Offer"
       { name: 'Depression', path: '/treatment/depresja' },
       { name: 'Anxiety Disorders', path: '/treatment/zaburzenia-lekowe' },
       { name: 'Schizophrenia', path: '/treatment/schizofrenia' },
@@ -109,7 +111,7 @@ const navigationItems: NavigationItem[] = [
   },
   {
     type: 'dropdown',
-    title: 'Patient Information',
+    title: 'Patient Information', // Klucz i18n
     items: [
       { name: 'psychiatricExamPrepPage.title', path: '/patient-info/psychiatric-exam-prep' },
       { name: 'firstVisitPage.title', path: '/patient-info/first-visit' },
@@ -123,33 +125,34 @@ const navigationItems: NavigationItem[] = [
   { type: 'link', name: 'Contact', path: '/#contact' }
 ];
 
-// Używamy komponentu Logo z Twojego pliku Logo.tsx
-// Załóżmy, że jest on w ./shared/Logo.tsx - dostosuj ścieżkę jeśli jest inna
-// import Logo from './shared/Logo'; 
-// Poniżej jest definicja Logo z Twojego pliku, dla kompletności tego przykładu
-const Logo = ({ className = "h-12 md:h-14 transition-transform duration-300 hover:scale-105" }: { className?: string }) => (
-  <svg width="100%" height="100%" viewBox="0 0 5563 1373" className={className}>
-    <g transform="matrix(1,0,0,1,-5776,-4887)">
-      <g transform="matrix(0.667511,0,0,0.164628,5776.11,4887.65)">
-        <g transform="matrix(5.37388,0,0,21.7893,-1090.81,-17616.5)">
+const Logo = () => (
+  <svg
+    width="100%"
+    height="100%"
+    viewBox="0 0 5418 1667"
+    className="h-12 md:h-14 transition-transform duration-300 hover:scale-105"
+    style={{ maxWidth: "180px" }}
+  >
+    <g transform="matrix(1,0,0,1,-5636,0)">
+      <g transform="matrix(0.65,0,0,0.2,5636.46,0)">
+        <g transform="matrix(6.41026,0,0,20.8333,-1292.85,-16666.5)">
           <g transform="matrix(0.24,0,0,0.24,201.685,799.993)">
-            <path d="M1176.72,647.641C1176.72,520.486 1071.36,433.997 962.572,433.997L508.093,433.997L508.093,501.548L962.572,501.548C1052.44,501.548 1108,568.887 1108,647.641C1108,726.396 1052.44,793.031 962.572,793.031L739.176,793.031L739.176,860.518L776.001,860.518L1049.64,1232.67L1128.38,1232.67L858.779,860.518L962.572,860.518C1071.36,860.518 1176.72,774.796 1176.72,647.641ZM2008.04,860.216L1940.37,860.216L1940.37,1232.67L2008.04,1232.67L2008.04,860.216ZM2680.33,434.531L2680.33,1232.67L2747.29,1232.67L2747.29,434.531L2680.33,434.531ZM1290.37,1165.14L1795.27,1165.14L1795.27,1232.67L1290.37,1232.67L1290.37,1165.14ZM2896.35,1165.14L3401.24,1165.14L3401.24,1232.67L2896.35,1232.67L2896.35,1165.14ZM4376.53,434.216L4294.35,434.216L4616.69,953.293L4618,1232.57L4690.89,1232.57L4689.89,952.251L4376.53,434.216ZM3863.28,434.531L3562.67,434.531L3562.67,501.428L3858.77,501.428C4082.51,501.428 4218.45,639.906 4218.45,833.951C4218.45,1028 4082.51,1165.05 3858.77,1165.05L3629.81,1165.05L3628.53,793.12L3562.67,793.12L3562.67,1232.57L3863.28,1232.57C4102.99,1232.57 4286.65,1073.66 4286.65,833.951C4286.65,594.239 4102.99,434.531 3863.28,434.531ZM4936.71,434.216L4688.72,837.117L4726.23,895.347L5013.63,434.216L4936.71,434.216ZM1940.37,793.12L2008.04,793.12L2008.04,541.222L2335.89,860.312L2355.88,860.312L2613.16,609.034L2613.16,513.295L2346.37,777.72L2008.04,434.531L1940.37,434.531L1940.37,793.12ZM1290.37,793.12L1763,793.12L1763,860.312L1290.37,860.312L1290.37,793.12ZM2896.35,793.12L3368.97,793.12L3368.97,860.312L2896.35,860.312L2896.35,793.12ZM1290.37,433.997L1795.27,433.997L1795.27,501.524L1290.37,501.524L1290.37,433.997ZM2896.35,433.997L3401.24,433.997L3401.24,501.524L2896.35,501.524L2896.35,433.997Z" style={{ fill: 'rgb(13,13,13)', fillRule: 'nonzero' }} />
+            <path
+              d="M1176.72,647.641C1176.72,520.486 1071.36,433.997 962.572,433.997L508.093,433.997L508.093,501.548L962.572,501.548C1052.44,501.548 1108,568.887 1108,647.641C1108,726.396 1052.44,793.031 962.572,793.031L739.176,793.031L739.176,860.518L776.001,860.518L1049.64,1232.67L1128.38,1232.67L858.779,860.518L962.572,860.518C1071.36,860.518 1176.72,774.796 1176.72,647.641ZM2008.04,860.216L1940.37,860.216L1940.37,1232.67L2008.04,1232.67L2008.04,860.216ZM2680.33,434.531L2680.33,1232.67L2747.29,1232.67L2747.29,434.531L2680.33,434.531ZM1290.37,1165.14L1795.27,1165.14L1795.27,1232.67L1290.37,1232.67L1290.37,1165.14ZM2896.35,1165.14L3401.24,1165.14L3401.24,1232.67L2896.35,1232.67L2896.35,1165.14ZM4376.53,434.216L4294.35,434.216L4616.69,953.293L4618,1232.57L4690.89,1232.57L4689.89,952.251L4376.53,434.216ZM3863.28,434.531L3562.67,434.531L3562.67,501.428L3858.77,501.428C4082.51,501.428 4218.45,639.906 4218.45,833.951C4218.45,1028 4082.51,1165.05 3858.77,1165.05L3629.81,1165.05L3628.53,793.12L3562.67,793.12L3562.67,1232.57L3863.28,1232.57C4102.99,1232.57 4286.65,1073.66 4286.65,833.951C4286.65,594.239 4102.99,434.531 3863.28,434.531ZM4936.71,434.216L4688.72,837.117L4726.23,895.347L5013.63,434.216L4936.71,434.216ZM1940.37,793.12L2008.04,793.12L2008.04,541.222L2335.89,860.312L2355.88,860.312L2613.16,609.034L2613.16,513.295L2346.37,777.72L2008.04,434.531L1940.37,434.531L1940.37,793.12ZM1290.37,793.12L1763,793.12L1763,860.312L1290.37,860.312L1290.37,793.12ZM2896.35,793.12L3368.97,793.12L3368.97,860.312L2896.35,860.312L2896.35,793.12ZM1290.37,433.997L1795.27,433.997L1795.27,501.524L1290.37,501.524L1290.37,433.997ZM2896.35,433.997L3401.24,433.997L3401.24,501.524L2896.35,501.524L2896.35,433.997Z"
+              style={{ fill: "rgb(13,13,13)", fillRule: "nonzero" }}
+            />
           </g>
           <g transform="matrix(0.24,0,0,0.24,-147.422,-2001.1)">
-            <path d="M2028.91,12464.3L2028.91,12360.6L1961.38,12360.6L1961.38,12464.3L1857.65,12464.3L1857.65,12531.9L1961.38,12531.9L1961.38,12635.6L2028.91,12635.6L2028.91,12531.9L2132.65,12531.9L2132.65,12464.3L2028.91,12464.3Z" style={{ fill: 'url(#_Linear1)' }} />
+            <path
+              d="M2028.91,12464.3L2028.91,12360.6L1961.38,12360.6L1961.38,12464.3L1857.65,12464.3L1857.65,12531.9L1961.38,12531.9L1961.38,12635.6L2028.91,12635.6L2028.91,12531.9L2132.65,12531.9L2132.65,12464.3L2028.91,12464.3Z"
+              style={{ fill: "rgb(70,183,198)" }}
+            />
           </g>
         </g>
       </g>
     </g>
-    <defs>
-      <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(274.998,0,0,-275.002,1857.65,12498.1)">
-        <stop offset="0" style={{ stopColor: 'rgb(61,151,197)', stopOpacity: 1 }} />
-        <stop offset="1" style={{ stopColor: 'rgb(79,215,199)', stopOpacity: 1 }} />
-      </linearGradient>
-    </defs>
   </svg>
 );
-
 
 const scrollWithOffset = (el: HTMLElement) => {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -259,76 +262,79 @@ export default function Navbar() {
   return (
     <nav className="bg-white/80 backdrop-blur-sm fixed w-full z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center"> {/* Główny flex z justify-between */}
-          
-          {/* Logo */}
-          <div className="flex-shrink-0"> {/* Logo nie będzie się rozciągać ani kurczyć */}
+        <div className="flex justify-between h-16 items-center">
+          {/* Logo - Left */}
+          <div className="flex-shrink-0">
             <HashLink smooth to="/#hero" scroll={(el) => scrollWithOffset(el)}>
-              {/* Użycie komponentu Logo z przekazaną klasą dla wysokości, szerokość domyślna z Logo.tsx lub nadpisana jeśli potrzeba */}
-              <Logo className="h-10 md:h-12 transition-transform duration-300 hover:scale-105"/>
+              <Logo />
             </HashLink>
           </div>
 
-          {/* Linki nawigacyjne (desktop) - wyśrodkowane w dostępnej przestrzeni */}
-          <div className="hidden lg:flex items-center justify-center flex-grow space-x-3 xl:space-x-4">
-            {navigationItems.map((navItem, index) => {
-              if (navItem.type === 'link') {
-                return (
-                  <HashLink
-                    key={index}
-                    smooth
-                    to={navItem.path}
-                    scroll={(el) => scrollWithOffset(el)}
-                    className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium whitespace-nowrap"
-                  >
-                    {t(navItem.name)}
-                  </HashLink>
-                );
-              }
-              if (navItem.type === 'dropdown') {
-                return (
-                  <NavDropdown
-                    key={index}
-                    title={navItem.title}
-                    items={navItem.items}
-                    isActive={activeDropdown === navItem.title}
-                    onMouseEnter={() => handleDropdownEnter(navItem.title)}
-                    onMouseLeave={handleDropdownLeave}
-                    setIsOpen={setIsOpen}
-                  />
-                );
-              }
-              return null;
-            })}
+          {/* Desktop Navigation - Center and Right */}
+          {/* Container for main links and right-side buttons to enable justify-between */}
+          <div className="hidden lg:flex flex-grow items-center justify-end"> {/* Changed to justify-end */}
+            {/* Main Navigation Links - will be pushed towards center/left by the right group */}
+            <div className="flex items-center space-x-3 xl:space-x-4"> {/* Adjusted spacing */}
+              {navigationItems.map((navItem, index) => {
+                if (navItem.type === 'link') {
+                  return (
+                    <HashLink
+                      key={index}
+                      smooth
+                      to={navItem.path}
+                      scroll={(el) => scrollWithOffset(el)}
+                      className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium whitespace-nowrap"
+                    >
+                      {t(navItem.name)}
+                    </HashLink>
+                  );
+                }
+                if (navItem.type === 'dropdown') {
+                  return (
+                    <NavDropdown
+                      key={index}
+                      title={navItem.title}
+                      items={navItem.items}
+                      isActive={activeDropdown === navItem.title}
+                      onMouseEnter={() => handleDropdownEnter(navItem.title)}
+                      onMouseLeave={handleDropdownLeave}
+                      setIsOpen={setIsOpen}
+                    />
+                  );
+                }
+                return null;
+              })}
+            </div>
+
+            {/* Language and Portal Buttons - pushed to the right */}
+            <div className="flex items-center space-x-3 xl:space-x-4 ml-6"> {/* Added ml-6 for spacing */}
+              <Language />
+              <Link
+                to="/platform"
+                className="gradient-theme text-white px-4 py-2 rounded-full
+                           hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
+              >
+                {t("Patient Portal")}
+              </Link>
+              <Link
+                to="https://remedyai.com.pl/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-[#46B7C6] border-2 border-[#46B7C6] px-4 py-2 rounded-full
+                           hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
+              >
+                {t("Professional Portal")}
+              </Link>
+            </div>
           </div>
 
-          {/* Akcje (Język, Portale - Desktop) */}
-          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4 flex-shrink-0"> {/* flex-shrink-0 aby nie zajmowały więcej miejsca */}
-            <Language />
-            <Link
-              to="/platform"
-              className="gradient-theme text-white px-4 py-2 rounded-full
-                         hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
-            >
-              {t("Patient Portal")}
-            </Link>
-            <Link
-              to="https://remedyai.com.pl/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-[#46B7C6] border-2 border-[#46B7C6] px-4 py-2 rounded-full
-                         hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
-            >
-              {t("Professional Portal")}
-            </Link>
-          </div>
 
-          {/* Przycisk menu mobilnego i język (tylko mobilne) */}
-          <div className="lg:hidden flex items-center"> {/* Usunięto ml-auto, bo justify-between na rodzicu to załatwi */}
+          {/* Mobile Menu Button & Language Toggle */}
+          <div className="flex gap-4 items-center lg:hidden">
             <Language />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="ml-3 rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors p-1"
+              className="rounded-md text-gray-700 hover:text-[#46B7C6] transition-colors p-1"
               aria-label={t("Toggle menu")}
             >
               {isOpen ? (
@@ -341,7 +347,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobilne Menu (bez zmian w logice, tylko dostosowanie danych) */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
