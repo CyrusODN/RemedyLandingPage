@@ -1110,5 +1110,17 @@
   "From a few months to a year or longer, depending on needs": "Od kilku miesięcy do roku lub dłużej, w zależności od potrzeb",
   "psychotherapyPage.costs.coordinatingTherapistConsultation": "Konsultacja z Terapeutą Koordynującym",
   "psychotherapyPage.startTherapy.title": "Rozpocznij Terapię",
-  "psychotherapyPage.startTherapy.description": "Umów się na konsultację z terapeutą koordynującym, aby rozpocząć swoją drogę do zmiany."
+  "psychotherapyPage.startTherapy.description": "Umów się na konsultację z terapeutą koordynującym, aby rozpocząć swoją drogę do zmiany.",
+  "servicePage.childYouthTherapy.title": "Diagnostyka i Wsparcie Psychologiczne Dzieci i Młodzieży",
+  "servicePage.childYouthTherapy.description": "Kompleksowe wsparcie diagnostyczne i terapeutyczne dla dzieci i młodzieży, dostosowane do indywidualnych potrzeb.",
+  "Initial consultation": "Konsultacja wstępna",
+  "Psychological diagnosis": "Diagnoza psychologiczna",
+  "Therapy plan establishment": "Ustalenie planu terapii",
+  "Regular therapy sessions": "Regularne sesje terapeutyczne",
+  "Experienced team of specialists": "Doświadczony zespół specjalistów",
+  "Various forms of therapy": "Różnorodne formy terapii",
+  "Regular progress assessment": "Regularna ocena postępów",
+  "servicePage.childService.detailsTitle": "Szczegóły usługi:",
+  "Benefits": "Korzyści",
+  "servicePage.childYouthTherapy.ctaDescription": "Umów się na pierwszą konsultację, aby rozpocząć proces terapeutyczny."
 }
