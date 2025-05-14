@@ -993,5 +993,27 @@
   "10-15 minutes": "10-15 minut",
   "firstVisitPage.readyCta.title": "Gotowy na Pierwszą Wizytę?",
   "firstVisitPage.readyCta.description": "Umów się już dziś i rozpocznij swoją drogę do zdrowia.",
-  "firstVisitPage.usefulLink.examPrep": "Przygotowanie do badania"
+  "firstVisitPage.usefulLink.examPrep": "Przygotowanie do badania",
+
+  "mmpi2DiagnosticsPage.title": "Badanie Osobowości MMPI-2",
+  "mmpi2DiagnosticsPage.description": "Kompleksowa diagnostyka osobowości z wykorzystaniem testu MMPI-2, przeprowadzana przez doświadczonych psychologów klinicznych.",
+  "1. Psychological Interview": "1. Wywiad Psychologiczny",
+  "Detailed conversation with a psychologist about life history, current difficulties, and expectations for diagnostics.": "Szczegółowa rozmowa z psychologiem dotycząca historii życia, obecnych trudności i oczekiwań względem diagnostyki.",
+  "2. MMPI-2 Test Administration": "2. Wykonanie Testu MMPI-2",
+  "Completion of the MMPI-2 questionnaire, consisting of 567 questions.": "Wypełnienie kwestionariusza MMPI-2, składającego się z 567 pytań.",
+  "3. Results Analysis and Report Preparation": "3. Analiza i Opracowanie Wyników",
+  "Detailed analysis of results by a psychologist and preparation of a written psychological report.": "Szczegółowa analiza wyników przez psychologa i przygotowanie pisemnej opinii psychologicznej.",
+  "Meeting with a psychologist for a detailed discussion of the test results and provision of recommendations.": "Spotkanie z psychologiem w celu szczegółowego omówienia wyników badania i przekazania zaleceń.",
+  "mmpi2DiagnosticsPage.whatIncludesTestTitle": "Co Obejmuje Badanie?",
+  "detailed conversation about life history and current functioning": "szczegółowa rozmowa dotycząca historii życia i obecnego funkcjonowania",
+  "MMPI-2 Test": "Test MMPI-2",
+  "comprehensive tool for assessing personality and psychological functioning": "kompleksowe narzędzie do oceny osobowości i funkcjonowania psychicznego",
+  "Written psychological report": "Pisemna opinia psychologiczna",
+  "discussion of results and recommendations with a psychologist": "omówienie wyników i zaleceń z psychologiem",
+  "mmpi2DiagnosticsPage.fullMMPI2DiagnosticsLabel": "Pełna Diagnostyka MMPI-2",
+  "mmpi2DiagnosticsPage.costNote": "Cena obejmuje cały proces diagnostyczny, włącznie z wywiadem, wykonaniem testu, opracowaniem wyników i konsultacją końcową.",
+  "50 minutes": "50 minut",
+  "120-150 minutes": "120-150 minut",
+  "30 minutes": "30 minut",
+  "mmpi2DiagnosticsPage.totalDurationNote": "Łączny orientacyjny czas: około 3.5 godziny, rozłożone na kilka spotkań"
 }
