@@ -44,7 +44,7 @@ const navigationItems: NavigationItem[] = [
     title: 'Offer',
     items: [
       {
-        category: 'Psychiatric Consultations', // Klucz do i18n
+        category: 'Psychiatric Consultations',
         items: [
           { name: 'Psychiatric Consultation', path: '/services/konsultacja' },
           { name: 'Psychiatric Consultation for Children and Adolescents', path: '/services/konsultacja-dzieci' }
@@ -57,7 +57,7 @@ const navigationItems: NavigationItem[] = [
         ]
       },
       {
-        category: 'Neurodevelopmental Diagnostics', // Klucz do i18n
+        category: 'Neurodevelopmental Diagnostics',
         items: [
           { name: 'adhdDiagnosticsPage.title', path: '/patient-info/adhd-diagnostics' },
           { name: 'autismDiagnosticsPage.title', path: '/patient-info/autism-diagnostics' }
@@ -70,7 +70,7 @@ const navigationItems: NavigationItem[] = [
         ]
       },
       {
-        category: 'Psychological Diagnostics and Support', // Klucz do i18n
+        category: 'Psychological Diagnostics and Support',
         items: [
           { name: 'cognitiveAssessmentPage.title', path: '/patient-info/cognitive-assessment' },
           { name: 'childServices.diagnostics.services.intelligenceTest.name', path: '/services/terapia-dzieci-mlodziez#diagnostics' },
@@ -91,13 +91,13 @@ const navigationItems: NavigationItem[] = [
           { name: 'childServices.drugResistant.services.nonPharmacologicalSupport.name', path: '/services/terapia-dzieci-mlodziez#drugResistant' }
         ]
       },
-      // Usunięto: Group Therapy i Clinical Trials - Preliminary Qualification
+      // Usunięto: "Group Therapy" i "Clinical Trials - Preliminary Qualification"
     ]
   },
   {
     type: 'dropdown',
     title: 'Scope of Treatment',
-    items: [ // Pozostaje płaską listą lub można dodać kategorie jak w "Offer"
+    items: [
       { name: 'Depression', path: '/treatment/depresja' },
       { name: 'Anxiety Disorders', path: '/treatment/zaburzenia-lekowe' },
       { name: 'Schizophrenia', path: '/treatment/schizofrenia' },
@@ -111,7 +111,7 @@ const navigationItems: NavigationItem[] = [
   },
   {
     type: 'dropdown',
-    title: 'Patient Information', // Klucz i18n
+    title: 'Patient Information',
     items: [
       { name: 'psychiatricExamPrepPage.title', path: '/patient-info/psychiatric-exam-prep' },
       { name: 'firstVisitPage.title', path: '/patient-info/first-visit' },
@@ -264,17 +264,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo - Left */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0"> {/* Logo zajmuje tylko potrzebne miejsce */}
             <HashLink smooth to="/#hero" scroll={(el) => scrollWithOffset(el)}>
               <Logo />
             </HashLink>
           </div>
 
           {/* Desktop Navigation - Center and Right */}
-          {/* Container for main links and right-side buttons to enable justify-between */}
-          <div className="hidden lg:flex flex-grow items-center justify-end"> {/* Changed to justify-end */}
-            {/* Main Navigation Links - will be pushed towards center/left by the right group */}
-            <div className="flex items-center space-x-3 xl:space-x-4"> {/* Adjusted spacing */}
+          {/* Ten div będzie rozciągnięty pomiędzy Logo a przyciskiem mobilnego menu */}
+          <div className="hidden lg:flex flex-1 items-center justify-between">
+            {/* Main Navigation Links - wyśrodkowane lub lekko w lewo */}
+            <div className="flex items-center space-x-3 xl:space-x-4">
               {navigationItems.map((navItem, index) => {
                 if (navItem.type === 'link') {
                   return (
@@ -306,8 +306,8 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* Language and Portal Buttons - pushed to the right */}
-            <div className="flex items-center space-x-3 xl:space-x-4 ml-6"> {/* Added ml-6 for spacing */}
+            {/* Language and Portal Buttons - wyrównane do prawej */}
+            <div className="flex items-center space-x-3 xl:space-x-4">
               <Language />
               <Link
                 to="/platform"
@@ -330,7 +330,7 @@ export default function Navbar() {
 
 
           {/* Mobile Menu Button & Language Toggle */}
-          <div className="flex gap-4 items-center lg:hidden">
+          <div className="flex gap-4 items-center lg:hidden"> {/* Ten div jest tylko dla mobilki */}
             <Language />
             <button
               onClick={() => setIsOpen(!isOpen)}
