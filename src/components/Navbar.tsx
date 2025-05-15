@@ -183,7 +183,7 @@ const NavDropdown = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <button className="text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-sm md:text-base font-medium flex items-center gap-1 whitespace-nowrap">
+      <button className="text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-[6px] lg:text-sm xl:text-base font-medium flex items-center gap-1 whitespace-nowrap">
         {t(title)}
         <ChevronDown className="h-4 w-4" />
       </button>
@@ -209,6 +209,8 @@ const NavDropdown = ({
                         to={subItem.path}
                         className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm rounded-md"
                         onClick={() => setIsOpen && setIsOpen(false)}
+                        target={subItem.path.startsWith('http') ? "_blank" : undefined}
+                        rel={subItem.path.startsWith('http') ? "noopener noreferrer" : undefined}
                       >
                         {t(subItem.name)}
                       </Link>
@@ -222,6 +224,8 @@ const NavDropdown = ({
                   to={item.path}
                   className="block px-4 py-2 text-gray-700 hover:text-[#46B7C6] hover:bg-gray-50 transition-colors text-sm"
                   onClick={() => setIsOpen && setIsOpen(false)}
+                  target={item.path.startsWith('http') ? "_blank" : undefined}
+                  rel={item.path.startsWith('http') ? "noopener noreferrer" : undefined}
                 >
                   {t(item.name)}
                 </Link>
@@ -260,11 +264,11 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav className="bg-white/80 backdrop-blur-sm fixed w-full z-50 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+    <nav className="bg-white/80 backdrop-blur-sm fixed w-full z-50 shadow-sm flex justify-center ">
+      <div className="max-w-7xl w-full px-4 lg:px-0 xl:px-8">
+        <div className="flex w-full justify-between h-16 items-center">
           {/* Logo - Left */}
-          <div className="flex-shrink-0">
+          <div className="lg:flex-shrink-0">
             <HashLink smooth to="/#hero" scroll={(el) => scrollWithOffset(el)}>
               <Logo />
             </HashLink>
@@ -283,7 +287,7 @@ export default function Navbar() {
                       smooth
                       to={navItem.path}
                       scroll={(el) => scrollWithOffset(el)}
-                      className="text-gray-700 hover:text-[#46B7C6] transition-colors text-sm md:text-base font-medium whitespace-nowrap"
+                      className="text-gray-700 hover:text-[#46B7C6] transition-colors text-[10px] lg:text-sm xl:text-base font-medium whitespace-nowrap"
                     >
                       {t(navItem.name)}
                     </HashLink>
@@ -309,9 +313,31 @@ export default function Navbar() {
             {/* Language and Portal Buttons - pushed to the right */}
             <div className="flex items-center space-x-3 xl:space-x-4 ml-6"> {/* Added ml-6 for spacing */}
               <Language />
-              <Link
+            
+
+                 <NavDropdown
+                  title="Portal"
+                  items={[
+                    {
+                      name: "Patient Portal",
+                      path: "/platform",
+                      external: false
+                    },
+                    {
+                      name: "Professional Portal",
+                      path: "https://remedyai.com.pl/login",
+                      external: true  // This will open in a new tab
+                    }
+                  ]}
+                  isActive={activeDropdown === 'Portal'}
+                  onMouseEnter={() => setActiveDropdown('Portal')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                  setIsOpen={setIsOpen}
+                />
+
+              {/* <Link
                 to="/platform"
-                className="gradient-theme text-white px-4 py-2 rounded-full
+                className="gradient-theme text-white xl:px-4 px-2 py-2 rounded-full
                            hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
               >
                 {t("Patient Portal")}
@@ -320,11 +346,11 @@ export default function Navbar() {
                 to="https://remedyai.com.pl/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-[#46B7C6] border-2 border-[#46B7C6] px-4 py-2 rounded-full
+                className="bg-white text-[#46B7C6] border-2 border-[#46B7C6] xl:px-4 px-2 py-2 rounded-full
                            hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap"
               >
                 {t("Professional Portal")}
-              </Link>
+              </Link> */}
             </div>
           </div>
 
