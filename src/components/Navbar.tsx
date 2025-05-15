@@ -312,9 +312,7 @@ export default function Navbar() {
 
             {/* Language and Portal Buttons - pushed to the right */}
             <div className="flex items-center space-x-3 xl:space-x-4 ml-6"> {/* Added ml-6 for spacing */}
-              <Language />
-            
-
+              
                  <NavDropdown
                   title="Portal"
                   items={[
@@ -334,6 +332,8 @@ export default function Navbar() {
                   onMouseLeave={() => setActiveDropdown(null)}
                   setIsOpen={setIsOpen}
                 />
+
+              <Language />
 
               {/* <Link
                 to="/platform"
