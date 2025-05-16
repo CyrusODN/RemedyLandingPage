@@ -10,9 +10,13 @@ import Contact from "../components/Contact";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsConditions from "./TermsConditions";
 import Locations from "../components/Locations";
+import { useTranslation } from "react-i18next";
 
 export default function HomePage() {
+    const { t } = useTranslation();
+  
   useEffect(() => {
+
     const hash = window.location.hash;
 
     if (hash) {
@@ -22,6 +26,12 @@ export default function HomePage() {
       }
     }
   }, []);
+
+  // change title for translation
+  useEffect(() => {
+    document.title = t("Remedy Psychiatric Center");
+  }, [t]);
+ 
   return (
     <div>
       <Hero />
