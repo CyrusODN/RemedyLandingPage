@@ -132,7 +132,15 @@ export default function Treatment() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               {t("Treatment Paths")}
             </h2>
-            <div className="h-1 w-20 gradient-theme mx-auto rounded-full" />
+            <div className="h-1 w-20 gradient-theme mx-auto rounded-full mb-6" />
+
+            <Link
+              to="/booking"
+              className="bg-[#46B7C6] text-white px-8 py-3 rounded-full font-medium 
+                hover:shadow-lg transition-all duration-300 inline-block"
+            >
+              {t("Book a Consultation")}
+            </Link>
           </div>
         </ScrollAnimationWrapper>
 
@@ -169,13 +177,15 @@ export default function Treatment() {
         </div>
 
         <ScrollAnimationWrapper animation="fade-up" className="mt-16">
-          <div className="gradient-theme rounded-xl p-8 text-white">
-            <h3 className="text-2xl font-semibold mb-4">
+          <div className="gradient-theme rounded-xl p-8 text-white lg:flex items-center justify-between">
+           <div>
+           <h3 className="text-2xl font-semibold mb-4">
               {t("Start Your Path to Health")}
             </h3>
-            <p className="mb-6">
+            <p className="lg-mb-0 mb-6">
               {t("Contact us to discuss the best treatment path for you.")}
             </p>
+           </div>
             <Link
               to="/booking"
               className="bg-white text-[#46B7C6] px-8 py-3 rounded-full font-medium 
