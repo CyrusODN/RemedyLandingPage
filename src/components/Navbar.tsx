@@ -266,7 +266,7 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav className="bg-white/80 backdrop-blur-sm fixed w-full z-50 shadow-sm flex justify-center ">
+    <nav className="bg-white/80 backdrop-blur-sm fixed w-full z-50 shadow-sm flex flex-col lg:flex-row justify-center ">
       <div className="max-w-7xl w-full px-4 lg:px-0 xl:px-8">
         <div className="flex w-full justify-between h-16 items-center">
           {/* Logo - Left */}
