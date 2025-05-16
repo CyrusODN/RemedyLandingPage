@@ -167,10 +167,12 @@ const NavDropdown = ({
   onMouseEnter,
   onMouseLeave,
   setIsOpen,
+  login = false
 }: {
   title: string;
   items: NavDropdownItem[];
   isActive: boolean;
+  login?: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
   setIsOpen?: (isOpen: boolean) => void;
@@ -183,7 +185,7 @@ const NavDropdown = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <button className="text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-[6px] lg:text-sm xl:text-base font-medium flex items-center gap-1 whitespace-nowrap">
+      <button className={`${login ? "gradient-theme !text-white xl:px-4 px-2 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium text-sm whitespace-nowrap" : ""} text-gray-700 hover:text-[#46B7C6] transition-colors py-1.5 text-[6px] lg:text-sm xl:text-base font-medium flex items-center gap-1 whitespace-nowrap`}>
         {t(title)}
         <ChevronDown className="h-4 w-4" />
       </button>
@@ -314,7 +316,8 @@ export default function Navbar() {
             <div className="flex items-center space-x-3 xl:space-x-4 ml-6"> {/* Added ml-6 for spacing */}
               
                  <NavDropdown
-                  title="Portal"
+                  title={t("Login")}
+                   login={true}
                   items={[
                     {
                       name: "Patient Portal",
