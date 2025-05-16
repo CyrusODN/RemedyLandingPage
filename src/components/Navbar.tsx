@@ -119,7 +119,7 @@ const navigationItems: NavigationItem[] = [
       { name: 'faqPage.title', path: '/patient-info/faq' },
     ]
   },
-  { type: 'link', name: 'Pricing', path: '/#pricing' },
+  // { type: 'link', name: 'Pricing', path: '/#pricing' },
   { type: 'link', name: 'Locations', path: '/#locations' },
   { type: 'link', name: 'Career', path: '/#join-us' },
   { type: 'link', name: 'Contact', path: '/#contact' }
